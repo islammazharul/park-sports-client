@@ -51,10 +51,10 @@ const NavBar = () => {
                 </div>
                 <div>
                     <div
-                        className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${navbar ? "block" : "hidden"
+                        className={`flex-1 justify-self-center pb-3 mt-4 md:block md:pb-0 md:mt-0 ${navbar ? "block" : "hidden"
                             }`}
                     >
-                        <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
+                        <ul className="items-center justify-center space-y-4 md:flex md:space-x-6 md:space-y-0">
                             <li className="text-white text-sm font-semibold hover:text-indigo-200">
                                 <Link>HOME</Link>
                             </li>
@@ -69,14 +69,13 @@ const NavBar = () => {
                             </li>
                         </ul>
 
-                        <div className="mt-3 space-y-2 lg:hidden md:inline-block">
-                            <a
-
-                                className="inline-block w-full px-4 py-2 text-center text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
+                        <div className="mt-2 lg:hidden md:inline-block">
+                            <Link to="/login"
+                                className="inline-block  px-3 py-1 text-center text-white bg-gray-600 shadow hover:bg-gray-800"
                             >
                                 SIGN IN
-                            </a>
-                            <a className="inline-block w-full px-4 py-2 text-center text-gray-800 bg-white rounded-md shadow hover:bg-gray-100"
+                            </Link>
+                            <a className="inline-block  px-3 py-1 text-center text-green-500 bg-white shadow hover:bg-gray-100"
                             >
                                 LOG OUT
                             </a>
@@ -84,17 +83,17 @@ const NavBar = () => {
                     </div>
                 </div>
                 <div className="hidden space-x-2 md:inline-block">
-                    <a
-                        href="javascript:void(0)"
-                        className="px-4 py-2 text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
+                    <Link to="/login"
+
+                        className="px-4 py-2 text-sm font-semibold text-white bg-gray-600 shadow hover:bg-gray-800"
                     >
-                        Sign in
-                    </a>
+                        SIGN IN
+                    </Link>
                     <a
-                        href="javascript:void(0)"
-                        className="px-4 py-2 text-gray-800 bg-white rounded-md shadow hover:bg-gray-100"
+
+                        className="px-4 py-2 text-sm font-semibold text-green-500 bg-white shadow hover:bg-gray-100"
                     >
-                        Sign up
+                        LOG OUT
                     </a>
                 </div>
             </div>

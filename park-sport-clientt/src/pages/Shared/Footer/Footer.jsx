@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <footer class="border-t bg-green-500">
+        <footer class="border-t bg-green-500 py-5">
             <div
                 class="container flex flex-wrap items-center justify-center px-4 py-8 mx-auto  lg:justify-between"
             >
@@ -78,7 +78,7 @@ const Footer = () => {
                     </a>
                 </div>
             </div>
-            <p className='text-center'>Copyright © 2023 - All right reserved by ACME Industries Ltd</p>
+            <p className='text-center'>Copyright © 2023 - All right reserved by PARK SPORTS ACADEMY.</p>
         </footer>
     );
 };
