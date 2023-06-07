@@ -1,8 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../provider/AuthProvider';
 
 const Login = () => {
+    const { register, reset, handleSubmit, formState: { errors } } = useForm();
+    const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext)
+
+    const onSubmit = data => {
+        signIn(data.email, data.password)
+            .then(result => {
+                const loggedUser = result.user
+                console.log("sign user", loggedUser);
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
+        console.log(data)
+    }
     return (
         <>
             <Helmet>
@@ -13,7 +29,7 @@ const Login = () => {
                     <h1 className="text-3xl font-semibold text-center text-green-500 uppercase">
                         Sign in
                     </h1>
-                    <form className="mt-6">
+                    <form onSubmit={handleSubmit(onSubmit)} className="mt-6">
                         <div className="mb-2">
                             <label
 
@@ -22,7 +38,7 @@ const Login = () => {
                                 Email
                             </label>
                             <input
-                                type="email"
+                                type="email" name="email" placeholder="Enter Your Email" {...register("email", { required: true })}
                                 className="block w-full px-4 py-2 mt-2 text-black bg-white border focus:border-green-400 focus:ring-green-300 focus:outline-none focus:ring focus:ring-opacity-40"
                             />
                         </div>
@@ -34,7 +50,9 @@ const Login = () => {
                                 Password
                             </label>
                             <input
-                                type="password"
+                                type="password" name="password" placeholder="Enter Your Password" {...register("password", {
+                                    required: true,
+                                })}
                                 className="block w-full px-4 py-2 mt-2 text-black bg-white border focus:border-green-400 focus:ring-green-300 focus:outline-none focus:ring focus:ring-opacity-40"
                             />
                         </div>
@@ -45,9 +63,11 @@ const Login = () => {
                             Forget Password?
                         </a>
                         <div className="mt-6">
-                            <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-green-500 hover:bg-green-600 focus:outline-none focus:bg-purple-600">
+                            <input type="submit" className="w-full px-4 py-2 text-white bg-green-500 hover:bg-green-600 focus:outline-none focus:bg-gray-600" value="LOGIN" />
+
+                            {/* <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-green-500 hover:bg-green-600 focus:outline-none focus:bg-purple-600">
                                 Login
-                            </button>
+                            </button> */}
                         </div>
                     </form>
                     <div className="relative flex items-center justify-center w-full mt-6 border border-t">

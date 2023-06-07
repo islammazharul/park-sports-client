@@ -1,14 +1,35 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { useForm } from "react-hook-form";
+import { AuthContext } from '../../provider/AuthProvider';
 
 const Signup = () => {
-    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const { register, reset, handleSubmit, formState: { errors }, watch } = useForm();
+    const { createUser, updateProfilePic } = useContext(AuthContext)
+
+
 
     const onSubmit = data => {
+        createUser(data.email, data.password)
+            .then(result => {
+                const loggedUser = result.user
+                console.log("logged user", loggedUser);
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
         console.log(data);
     }
+
+
+
+    const validatePasswordMatch = (value) => {
+        const password = watch('password', '');
+        return value === password || "Passwords don't match.";
+    };
+
+
     return (
         <>
             <Helmet>
@@ -72,6 +93,7 @@ const Signup = () => {
                                     Password
                                 </label>
                                 <input
+
                                     type="password" name="password" placeholder="Enter Your Password" {...register("password", {
                                         required: true,
                                         pattern: /(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/,
@@ -93,9 +115,11 @@ const Signup = () => {
                                     Confirm Password
                                 </label>
                                 <input
-                                    type="password" name="confirm" placeholder="Enter Your Password" {...register("confirm", { required: true })}
+
+                                    type="password" name="confirmPassword" placeholder="Enter Your Password" {...register("confirm", { required: true, validate: validatePasswordMatch })}
                                     className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border focus:border-green-400 focus:ring-green-300 focus:outline-none focus:ring focus:ring-opacity-40"
                                 />
+                                {errors.confirmPassword && <span>{errors.confirmPassword.message}</span>}
                             </div>
 
                             <div className="mt-6">
