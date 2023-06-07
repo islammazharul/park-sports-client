@@ -59,10 +59,10 @@ const NavBar = () => {
                                 <Link>HOME</Link>
                             </li>
                             <li className="text-sm font-semibold text-white hover:text-indigo-200">
-                                <Link>INSTRUCTORS</Link>
+                                <Link to="/instructors">INSTRUCTORS</Link>
                             </li>
                             <li className="text-sm font-semibold text-white hover:text-indigo-200">
-                                <Link>CLASSES</Link>
+                                <Link to="/classes">CLASSES</Link>
                             </li>
                             <li className="text-sm font-semibold text-white hover:text-indigo-200">
                                 <Link>DASHBOARD</Link>

@@ -2,26 +2,26 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <footer class="border-t bg-green-500 py-5">
+        <footer className="border-t bg-green-500 py-5">
             <div
-                class="container flex flex-wrap items-center justify-center px-4 py-8 mx-auto  lg:justify-between"
+                className="container flex flex-wrap items-center justify-center px-4 py-8 mx-auto  lg:justify-between"
             >
-                <div class="flex flex-wrap justify-center">
-                    <ul class="flex items-center space-x-4">
+                <div className="flex flex-wrap justify-center">
+                    <ul className="flex items-center space-x-4">
                         <li>Home</li>
                         <li>About</li>
                         <li>Contact</li>
                         <li>Terms</li>
                     </ul>
                 </div>
-                <div class="flex justify-center mt-4 lg:mt-0">
+                <div className="flex justify-center mt-4 lg:mt-0">
                     <a>
                         <svg
                             fill="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            class="w-6 h-6 text-white"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            className="w-6 h-6 text-white"
                             viewBox="0 0 24 24"
                         >
                             <path
@@ -29,13 +29,13 @@ const Footer = () => {
                             ></path>
                         </svg>
                     </a>
-                    <a class="ml-3">
+                    <a className="ml-3">
                         <svg
                             fill="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            class="w-6 h-6 text-white"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            className="w-6 h-6 text-white"
                             viewBox="0 0 24 24"
                         >
                             <path
@@ -43,14 +43,14 @@ const Footer = () => {
                             ></path>
                         </svg>
                     </a>
-                    <a class="ml-3">
+                    <a className="ml-3">
                         <svg
                             fill="none"
                             stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            class="w-6 h-6 text-white"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            className="w-6 h-6 text-white"
                             viewBox="0 0 24 24"
                         >
                             <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
@@ -59,14 +59,14 @@ const Footer = () => {
                             ></path>
                         </svg>
                     </a>
-                    <a class="ml-3">
+                    <a className="ml-3">
                         <svg
                             fill="currentColor"
                             stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="0"
-                            class="w-6 h-6 text-white"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="0"
+                            className="w-6 h-6 text-white"
                             viewBox="0 0 24 24"
                         >
                             <path
