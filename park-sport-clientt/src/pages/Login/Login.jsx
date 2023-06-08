@@ -64,10 +64,6 @@ const Login = () => {
                         </a>
                         <div className="mt-6">
                             <input type="submit" className="w-full px-4 py-2 text-white bg-green-500 hover:bg-green-600 focus:outline-none focus:bg-gray-600" value="LOGIN" />
-
-                            {/* <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-green-500 hover:bg-green-600 focus:outline-none focus:bg-purple-600">
-                                Login
-                            </button> */}
                         </div>
                     </form>
                     <div className="relative flex items-center justify-center w-full mt-6 border border-t">

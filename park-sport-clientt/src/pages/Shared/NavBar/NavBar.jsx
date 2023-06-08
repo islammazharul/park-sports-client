@@ -1,8 +1,20 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../provider/AuthProvider';
 
 const NavBar = () => {
     const [navbar, setNavbar] = useState(false);
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+                console.log("logOut");
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
+    }
     return (
         <nav className="w-full bg-green-500 shadow">
             <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
@@ -65,7 +77,7 @@ const NavBar = () => {
                                 <Link to="/classes">CLASSES</Link>
                             </li>
                             <li className="text-sm font-semibold text-white hover:text-indigo-200">
-                                <Link>DASHBOARD</Link>
+                                <Link to="/dashboard">DASHBOARD</Link>
                             </li>
                         </ul>
 
@@ -75,7 +87,7 @@ const NavBar = () => {
                             >
                                 SIGN IN
                             </Link>
-                            <a className="inline-block  px-3 py-1 text-center text-green-500 bg-white shadow hover:bg-gray-100"
+                            <a onClick={handleLogOut} className="inline-block  px-3 py-1 text-center text-green-500 bg-white shadow hover:bg-gray-100"
                             >
                                 LOG OUT
                             </a>
@@ -90,7 +102,7 @@ const NavBar = () => {
                         SIGN IN
                     </Link>
                     <a
-
+                        onClick={handleLogOut}
                         className="px-4 py-2 text-sm font-semibold text-green-500 bg-white shadow hover:bg-gray-100"
                     >
                         LOG OUT
