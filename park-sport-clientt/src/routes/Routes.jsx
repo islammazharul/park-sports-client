@@ -11,8 +11,6 @@ import Dashboard from "../layout/Dashboard";
 import Payment from "../pages/Dashboard/User/Payment/Payment";
 import AddClasses from "../pages/Dashboard/Instructor/AddClasses/AddClasses";
 import MyClasses from "../pages/Dashboard/Instructor/MyClasses/MyClasses";
-import AllUsers from "../pages/Dashboard/Admin/AllUsers/AllUsers";
-import AllInstructors from "../pages/Dashboard/Admin/AllInstructors/AllInstructors";
 import MySelectedClass from "../pages/Dashboard/User/MySelectedClass/MySelectedClass";
 import MyEnrolle from "../pages/Dashboard/User/MyEnrolle/MyEnrolle";
 import ManageClasses from "../pages/Dashboard/Admin/ManageClasses/ManageClasses";
