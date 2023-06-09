@@ -24,7 +24,7 @@ const Dashboard = () => {
     return (
         <div className="flex h-screen">
             {/* Sidebar */}
-            <div className="bg-gray-800 text-white flex flex-col items-center justify-center lg:w-64">
+            <div className="bg-gray-800 text-white font-semibold flex flex-col items-center justify-center lg:w-64">
                 <h1 className="text-2xl font-bold">welcome</h1>
                 {/* Sidebar Content */}
                 <div className="p-4">

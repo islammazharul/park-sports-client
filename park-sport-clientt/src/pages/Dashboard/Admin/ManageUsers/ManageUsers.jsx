@@ -5,6 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import { Helmet } from 'react-helmet';
 import { FaUsers, FaTrashAlt } from 'react-icons/fa';
 import Swal from 'sweetalert2';
+import SectionTitle from '../../../../components/SectionTitle/SectionTitle';
 
 const ManageUsers = () => {
     // const { user } = useContext(AuthContext)
@@ -80,12 +81,12 @@ const ManageUsers = () => {
             <Helmet>
                 <title>Manage Users | Park Sports</title>
             </Helmet>
-            <h3 className="text-3xl font-semibold uppercase my-4">total users: {users.length}</h3>
-            <div className="overflow-x-auto">
+            <SectionTitle heading="MANAGE USERS"></SectionTitle>
+            <div className="overflow-x-auto mt-10">
                 <table className="table w-full">
                     {/* head */}
                     <thead>
-                        <tr>
+                        <tr className='bg-green-500 text-white'>
                             <th>#</th>
                             <th>Name</th>
                             <th>Email</th>

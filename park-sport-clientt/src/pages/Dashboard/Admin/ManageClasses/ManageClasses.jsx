@@ -9,7 +9,6 @@ import Swal from 'sweetalert2';
 
 const ManageClasses = () => {
     const [axiosSecure] = useAxiosSecure();
-    const [disable, setDisable] = useState(true)
     const { data: sports = [], refetch, loading } = useQuery({
         queryKey: ["sports"],
         queryFn: async () => {
@@ -19,10 +18,9 @@ const ManageClasses = () => {
     })
 
     const handleApprove = id => {
-        axiosSecure.patch(`/sports/${id}`)
+        axiosSecure.patch(`/sports/approved/${id}`)
             .then(data => {
                 if (data.data.modifiedCount) {
-                    setDisable(false)
                     refetch()
                     Swal.fire({
                         position: 'top-end',
@@ -36,8 +34,20 @@ const ManageClasses = () => {
         console.log("id", id);
     }
 
-    const handleDeny = sport => {
-
+    const handleDeny = id => {
+        axiosSecure.patch(`/sports/denied/${id}`)
+            .then(data => {
+                if (data.data.modifiedCount) {
+                    refetch()
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Class has been denied!!!',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
     }
 
     return (
@@ -53,7 +63,6 @@ const ManageClasses = () => {
                         sport={sport}
                         handleApprove={handleApprove}
                         handleDeny={handleDeny}
-                        disable={disable}
                     ></ManageCard>
                     )
                 }
