@@ -1,7 +1,7 @@
 import React from 'react';
 
-const ManageCard = ({ sport }) => {
-    const { image, class_name, email, price, status, total_enroll, available_seat, feedback, instructor_name } = sport;
+const ManageCard = ({ sport, handleApprove, handleDeny, disable }) => {
+    const { _id, image, class_name, email, price, status, total_enroll, available_seat, feedback, instructor_name } = sport;
     return (
         <div className=" mx-auto rounded-lg shadow-md lg:flex md:flex shadow-sky-600">
             <img
@@ -30,8 +30,13 @@ const ManageCard = ({ sport }) => {
                     Price : $ {price}
                 </h4>
                 <div className='flex justify-between items-center'>
-                    <button className="btn btn-sm bg-green-500">Approve</button>
-                    <button className="btn btn-sm bg-red-500">Deny</button>
+                    {
+                        status === 'approved' || status === 'deny' ? <button disabled onClick={() => handleApprove(_id)} className="btn btn-sm bg-green-500">Approve</button> : <button onClick={() => handleApprove(_id)} className="btn btn-sm bg-green-500">Approve</button>
+                    }
+                    {
+                        status === 'approved' || status === 'deny' ? <button disabled onClick={() => handleDeny(_id)} className="btn btn-sm bg-red-500">Deny</button> : <button onClick={() => handleDeny(_id)} className="btn btn-sm bg-red-500">Deny</button>
+                    }
+
                     <button className="btn btn-sm bg-yellow-500">Feedback</button>
                 </div>
             </div>

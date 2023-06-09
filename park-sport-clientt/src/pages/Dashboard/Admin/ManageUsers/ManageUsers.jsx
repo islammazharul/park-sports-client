@@ -108,13 +108,13 @@ const ManageUsers = () => {
                                     <td>
 
                                         {
-                                            user.role === 'admin' ? <button disabled onClick={() => handleMakeAdmin(user)} className="btn btn-ghost btn-xs bg-yellow-600 text-white">Make Admin</button> : <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost btn-xs bg-yellow-600 text-white">Make Admin</button>
+                                            user.role === 'admin' || user.role === 'instructor' ? <button disabled onClick={() => handleMakeAdmin(user)} className="btn btn-ghost btn-xs bg-yellow-600 text-white">Make Admin</button> : <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost btn-xs bg-yellow-600 text-white">Make Admin</button>
                                         }
 
                                     </td>
                                     <td>
                                         {
-                                            user.role === 'instructor' ? <button disabled onClick={() => handleMakeInstructor(user)} className="btn btn-ghost btn-xs bg-indigo-600 text-white">Make Instructor</button> : <button onClick={() => handleMakeInstructor(user)} className="btn btn-ghost btn-xs bg-indigo-600 text-white">Make Instructor</button>
+                                            user.role === 'admin' || user.role === 'instructor' ? <button disabled onClick={() => handleMakeInstructor(user)} className="btn btn-ghost btn-xs bg-indigo-600 text-white">Make Instructor</button> : <button onClick={() => handleMakeInstructor(user)} className="btn btn-ghost btn-xs bg-indigo-600 text-white">Make Instructor</button>
                                         }
                                     </td>
                                     <td><button onClick={() => handleDelete(user)} className="btn btn-ghost btn-small text-red-600"><FaTrashAlt></FaTrashAlt></button></td>
