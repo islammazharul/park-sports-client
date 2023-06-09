@@ -20,7 +20,8 @@ const ManageUsers = () => {
     const handleMakeAdmin = user => {
         axiosSecure.patch(`/users/admin/${user._id}`)
             .then(data => {
-                if (data.modifiedCount) {
+                // console.log("data", data.data);
+                if (data.data.modifiedCount > 0) {
                     refetch()
                     Swal.fire({
                         position: 'top-end',
@@ -31,6 +32,47 @@ const ManageUsers = () => {
                     })
                 }
             })
+    }
+    const handleMakeInstructor = user => {
+        axiosSecure.patch(`/user/instructor/${user._id}`)
+            .then(data => {
+                if (data.data.modifiedCount > 0) {
+                    refetch()
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: `${user.name} make instructor now!`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
+    }
+
+    const handleDelete = user => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.delete(`/users/admin/${user._id}`)
+                    .then(res => {
+                        if (res.data.deletedCount > 0) {
+                            refetch()
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+                        }
+                    })
+            }
+        })
     }
 
     return (
@@ -66,13 +108,13 @@ const ManageUsers = () => {
                                     <td>
 
                                         {
-                                            user.role === 'admin' && 'instructor' ? <button disabled onClick={() => handleMakeAdmin(user)} className="btn btn-ghost btn-xs bg-yellow-600 text-white">Make Admin</button> : <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost btn-xs bg-yellow-600 text-white">Make Admin</button>
+                                            user.role === 'admin' ? <button disabled onClick={() => handleMakeAdmin(user)} className="btn btn-ghost btn-xs bg-yellow-600 text-white">Make Admin</button> : <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost btn-xs bg-yellow-600 text-white">Make Admin</button>
                                         }
 
                                     </td>
                                     <td>
                                         {
-                                            user.role === 'admin' && 'instructor' ? <button disabled onClick={() => handleMakeInstructor(user)} className="btn btn-ghost btn-xs bg-indigo-600 text-white">Make Instructor</button> : <button onClick={() => handleMakeInstructor(user)} className="btn btn-ghost btn-xs bg-indigo-600 text-white">Make Instructor</button>
+                                            user.role === 'instructor' ? <button disabled onClick={() => handleMakeInstructor(user)} className="btn btn-ghost btn-xs bg-indigo-600 text-white">Make Instructor</button> : <button onClick={() => handleMakeInstructor(user)} className="btn btn-ghost btn-xs bg-indigo-600 text-white">Make Instructor</button>
                                         }
                                     </td>
                                     <td><button onClick={() => handleDelete(user)} className="btn btn-ghost btn-small text-red-600"><FaTrashAlt></FaTrashAlt></button></td>
