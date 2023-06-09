@@ -6,27 +6,27 @@ const PopularInstructor = () => {
         <div>
             <SectionTitle heading="Most Popular Instructors" subHeading="We thrive on building a player’s technical foundation and applying those skills into an appropriate competitive environment.  Most of our players have made a long-term commitment to become the best player they can, knowing that it involves hard work and dedication to reach their full potential."></SectionTitle>
 
-            <div class="grid gap-4 md:grid-cols-3 lg:w-9/12 mx-auto my-8">
-                <div class="p-4 shadow-md shadow-green-500">
-                    <div class="h-48 mb-2 overflow-hidden rounded-lg shadow-lg md:h-80">
+            <div className="grid gap-4 md:grid-cols-3 lg:w-9/12 mx-auto my-8">
+                <div className="p-4 shadow-md shadow-green-500">
+                    <div className="h-48 mb-2 overflow-hidden rounded-lg shadow-lg md:h-80">
                         <img
                             src="https://cdn.pixabay.com/photo/2016/11/21/12/42/beard-1845166__340.jpg"
                             alt="Image"
-                            class="object-cover object-center w-full h-full"
+                            className="object-cover object-center w-full h-full"
                         />
                     </div>
 
-                    <div class="flex flex-col items-center justify-center">
-                        <div class="font-bold text-indigo-500 md:text-lg">John Doe</div>
-                        <p class="mb-3 text-sm text-gray-500 md:text-base md:mb-4">
+                    <div className="flex flex-col items-center justify-center">
+                        <div className="font-bold text-indigo-500 md:text-lg">John Doe</div>
+                        <p className="mb-3 text-sm text-gray-500 md:text-base md:mb-4">
                             Founder / CEO
                         </p>
 
-                        <div class="flex">
-                            <div class="flex gap-4">
+                        <div className="flex">
+                            <div className="flex gap-4">
                                 <a href="#">
                                     <svg
-                                        class="w-6 h-6 text-blue-600 fill-current"
+                                        className="w-6 h-6 text-blue-600 fill-current"
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 24 24"
                                     >
@@ -37,7 +37,7 @@ const PopularInstructor = () => {
                                 </a>
                                 <a href="#">
                                     <svg
-                                        class="w-6 h-6 text-blue-300 fill-current"
+                                        className="w-6 h-6 text-blue-300 fill-current"
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 24 24"
                                     >
@@ -48,7 +48,7 @@ const PopularInstructor = () => {
                                 </a>
                                 <a href="#">
                                     <svg
-                                        class="w-6 h-6 text-blue-500 fill-current"
+                                        className="w-6 h-6 text-blue-500 fill-current"
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 448 512"
                                     >
@@ -61,26 +61,26 @@ const PopularInstructor = () => {
                         </div>
                     </div>
                 </div>
-                <div class="p-4 shadow-md shadow-green-500">
-                    <div class="h-48 mb-2 overflow-hidden rounded-lg shadow-lg md:h-80">
+                <div className="p-4 shadow-md shadow-green-500">
+                    <div className="h-48 mb-2 overflow-hidden rounded-lg shadow-lg md:h-80">
                         <img
                             src="https://cdn.pixabay.com/photo/2016/11/18/19/07/happy-1836445__340.jpg"
                             alt="Image"
-                            class="object-cover object-center w-full h-full"
+                            className="object-cover object-center w-full h-full"
                         />
                     </div>
 
-                    <div class="flex flex-col items-center justify-center">
-                        <div class="font-bold text-indigo-500 md:text-lg">John Doe</div>
-                        <p class="mb-3 text-sm text-gray-500 md:text-base md:mb-4">
+                    <div className="flex flex-col items-center justify-center">
+                        <div className="font-bold text-indigo-500 md:text-lg">John Doe</div>
+                        <p className="mb-3 text-sm text-gray-500 md:text-base md:mb-4">
                             Web Developer
                         </p>
 
-                        <div class="flex">
-                            <div class="flex gap-4">
+                        <div className="flex">
+                            <div className="flex gap-4">
                                 <a href="#">
                                     <svg
-                                        class="w-6 h-6 text-blue-600 fill-current"
+                                        className="w-6 h-6 text-blue-600 fill-current"
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 24 24"
                                     >
@@ -91,7 +91,7 @@ const PopularInstructor = () => {
                                 </a>
                                 <a href="#">
                                     <svg
-                                        class="w-6 h-6 text-blue-300 fill-current"
+                                        className="w-6 h-6 text-blue-300 fill-current"
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 24 24"
                                     >
@@ -102,7 +102,7 @@ const PopularInstructor = () => {
                                 </a>
                                 <a href="#">
                                     <svg
-                                        class="w-6 h-6 text-blue-500 fill-current"
+                                        className="w-6 h-6 text-blue-500 fill-current"
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 448 512"
                                     >
@@ -115,26 +115,26 @@ const PopularInstructor = () => {
                         </div>
                     </div>
                 </div>
-                <div class="p-4 shadow-md shadow-green-500">
-                    <div class="h-48 mb-2 overflow-hidden rounded-lg shadow-lg md:h-80">
+                <div className="p-4 shadow-md shadow-green-500">
+                    <div className="h-48 mb-2 overflow-hidden rounded-lg shadow-lg md:h-80">
                         <img
                             src="https://cdn.pixabay.com/photo/2018/01/15/07/52/woman-3083401__340.jpg"
                             alt="Image"
-                            class="object-cover object-center w-full h-full"
+                            className="object-cover object-center w-full h-full"
                         />
                     </div>
 
-                    <div class="flex flex-col items-center justify-center">
-                        <div class="font-bold text-indigo-500 md:text-lg">Scarlet</div>
-                        <p class="mb-3 text-sm text-gray-500 md:text-base md:mb-4">
+                    <div className="flex flex-col items-center justify-center">
+                        <div className="font-bold text-indigo-500 md:text-lg">Scarlet</div>
+                        <p className="mb-3 text-sm text-gray-500 md:text-base md:mb-4">
                             Devops Engineer
                         </p>
 
-                        <div class="flex">
-                            <div class="flex gap-4">
+                        <div className="flex">
+                            <div className="flex gap-4">
                                 <a href="#">
                                     <svg
-                                        class="w-6 h-6 text-blue-600 fill-current"
+                                        className="w-6 h-6 text-blue-600 fill-current"
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 24 24"
                                     >
@@ -145,7 +145,7 @@ const PopularInstructor = () => {
                                 </a>
                                 <a href="#">
                                     <svg
-                                        class="w-6 h-6 text-blue-300 fill-current"
+                                        className="w-6 h-6 text-blue-300 fill-current"
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 24 24"
                                     >
@@ -156,7 +156,7 @@ const PopularInstructor = () => {
                                 </a>
                                 <a href="#">
                                     <svg
-                                        class="w-6 h-6 text-blue-500 fill-current"
+                                        className="w-6 h-6 text-blue-500 fill-current"
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 448 512"
                                     >
@@ -169,26 +169,26 @@ const PopularInstructor = () => {
                         </div>
                     </div>
                 </div>
-                <div class="p-4 shadow-md shadow-green-500">
-                    <div class="h-48 mb-2 overflow-hidden rounded-lg shadow-lg md:h-80">
+                <div className="p-4 shadow-md shadow-green-500">
+                    <div className="h-48 mb-2 overflow-hidden rounded-lg shadow-lg md:h-80">
                         <img
                             src="https://cdn.pixabay.com/photo/2018/01/15/07/52/woman-3083401__340.jpg"
                             alt="Image"
-                            class="object-cover object-center w-full h-full"
+                            className="object-cover object-center w-full h-full"
                         />
                     </div>
 
-                    <div class="flex flex-col items-center justify-center">
-                        <div class="font-bold text-indigo-500 md:text-lg">Scarlet</div>
-                        <p class="mb-3 text-sm text-gray-500 md:text-base md:mb-4">
+                    <div className="flex flex-col items-center justify-center">
+                        <div className="font-bold text-indigo-500 md:text-lg">Scarlet</div>
+                        <p className="mb-3 text-sm text-gray-500 md:text-base md:mb-4">
                             Devops Engineer
                         </p>
 
-                        <div class="flex">
-                            <div class="flex gap-4">
+                        <div className="flex">
+                            <div className="flex gap-4">
                                 <a href="#">
                                     <svg
-                                        class="w-6 h-6 text-blue-600 fill-current"
+                                        className="w-6 h-6 text-blue-600 fill-current"
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 24 24"
                                     >
@@ -199,7 +199,7 @@ const PopularInstructor = () => {
                                 </a>
                                 <a href="#">
                                     <svg
-                                        class="w-6 h-6 text-blue-300 fill-current"
+                                        className="w-6 h-6 text-blue-300 fill-current"
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 24 24"
                                     >
@@ -210,7 +210,7 @@ const PopularInstructor = () => {
                                 </a>
                                 <a href="#">
                                     <svg
-                                        class="w-6 h-6 text-blue-500 fill-current"
+                                        className="w-6 h-6 text-blue-500 fill-current"
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 448 512"
                                     >
@@ -223,26 +223,26 @@ const PopularInstructor = () => {
                         </div>
                     </div>
                 </div>
-                <div class="p-4 shadow-md shadow-green-500">
-                    <div class="h-48 mb-2 overflow-hidden rounded-lg shadow-lg md:h-80">
+                <div className="p-4 shadow-md shadow-green-500">
+                    <div className="h-48 mb-2 overflow-hidden rounded-lg shadow-lg md:h-80">
                         <img
                             src="https://cdn.pixabay.com/photo/2018/01/15/07/52/woman-3083401__340.jpg"
                             alt="Image"
-                            class="object-cover object-center w-full h-full"
+                            className="object-cover object-center w-full h-full"
                         />
                     </div>
 
-                    <div class="flex flex-col items-center justify-center">
-                        <div class="font-bold text-indigo-500 md:text-lg">Scarlet</div>
-                        <p class="mb-3 text-sm text-gray-500 md:text-base md:mb-4">
+                    <div className="flex flex-col items-center justify-center">
+                        <div className="font-bold text-indigo-500 md:text-lg">Scarlet</div>
+                        <p className="mb-3 text-sm text-gray-500 md:text-base md:mb-4">
                             Devops Engineer
                         </p>
 
-                        <div class="flex">
-                            <div class="flex gap-4">
+                        <div className="flex">
+                            <div className="flex gap-4">
                                 <a href="#">
                                     <svg
-                                        class="w-6 h-6 text-blue-600 fill-current"
+                                        className="w-6 h-6 text-blue-600 fill-current"
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 24 24"
                                     >
@@ -253,7 +253,7 @@ const PopularInstructor = () => {
                                 </a>
                                 <a href="#">
                                     <svg
-                                        class="w-6 h-6 text-blue-300 fill-current"
+                                        className="w-6 h-6 text-blue-300 fill-current"
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 24 24"
                                     >
@@ -264,7 +264,7 @@ const PopularInstructor = () => {
                                 </a>
                                 <a href="#">
                                     <svg
-                                        class="w-6 h-6 text-blue-500 fill-current"
+                                        className="w-6 h-6 text-blue-500 fill-current"
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 448 512"
                                     >
@@ -277,26 +277,26 @@ const PopularInstructor = () => {
                         </div>
                     </div>
                 </div>
-                <div class="p-4 shadow-md shadow-green-500">
-                    <div class="h-48 mb-2 overflow-hidden rounded-lg shadow-lg md:h-80">
+                <div className="p-4 shadow-md shadow-green-500">
+                    <div className="h-48 mb-2 overflow-hidden rounded-lg shadow-lg md:h-80">
                         <img
                             src="https://cdn.pixabay.com/photo/2018/01/15/07/52/woman-3083401__340.jpg"
                             alt="Image"
-                            class="object-cover object-center w-full h-full"
+                            className="object-cover object-center w-full h-full"
                         />
                     </div>
 
-                    <div class="flex flex-col items-center justify-center">
-                        <div class="font-bold text-indigo-500 md:text-lg">Scarlet</div>
-                        <p class="mb-3 text-sm text-gray-500 md:text-base md:mb-4">
+                    <div className="flex flex-col items-center justify-center">
+                        <div className="font-bold text-indigo-500 md:text-lg">Scarlet</div>
+                        <p className="mb-3 text-sm text-gray-500 md:text-base md:mb-4">
                             Devops Engineer
                         </p>
 
-                        <div class="flex">
-                            <div class="flex gap-4">
+                        <div className="flex">
+                            <div className="flex gap-4">
                                 <a href="#">
                                     <svg
-                                        class="w-6 h-6 text-blue-600 fill-current"
+                                        className="w-6 h-6 text-blue-600 fill-current"
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 24 24"
                                     >
@@ -307,7 +307,7 @@ const PopularInstructor = () => {
                                 </a>
                                 <a href="#">
                                     <svg
-                                        class="w-6 h-6 text-blue-300 fill-current"
+                                        className="w-6 h-6 text-blue-300 fill-current"
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 24 24"
                                     >
@@ -318,7 +318,7 @@ const PopularInstructor = () => {
                                 </a>
                                 <a href="#">
                                     <svg
-                                        class="w-6 h-6 text-blue-500 fill-current"
+                                        className="w-6 h-6 text-blue-500 fill-current"
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 448 512"
                                     >

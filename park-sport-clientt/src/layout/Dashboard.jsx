@@ -8,8 +8,8 @@ const Dashboard = () => {
     const { user } = useContext(AuthContext)
 
     const userLinks = [
-        { link: `/dashboard/userhome`, label: "home" },
-        { link: `/dashboard/mybooking`, label: "booking" },
+        { link: `/dashboard/mySelectedClass`, label: "My Selected Classes" },
+        { link: `/dashboard/myEnrolle`, label: "My Enrolled Classes" },
         // { link: `/`, label: "Back to Home" },
     ];
     const instructorLinks = [
@@ -17,8 +17,8 @@ const Dashboard = () => {
         { link: `/dashboard/myClasses`, label: 'My Classes' },
     ];
     const adminLinks = [
-        { link: `/dashboard/allUsers`, label: 'All Users' },
-        { link: `/dashboard/allInstructors`, label: 'All Instructors' },
+        { link: `/dashboard/manageClasses`, label: 'Manage Classes' },
+        { link: `/dashboard/manageUsers`, label: 'Manage Users' },
     ];
 
     return (
