@@ -15,7 +15,7 @@ const useAxiosSecure = () => {
             return config
         })
         axiosSecure.interceptors.response.use((response) => {
-            response
+            return response
         },
             async (error) => {
                 if (error.response && (error.response.status === 401 || error.response.status === 403)) {
@@ -26,7 +26,7 @@ const useAxiosSecure = () => {
 
         )
     }, [])
-    return axiosSecure
+    return [axiosSecure]
 }
 
 export default useAxiosSecure;

@@ -23,7 +23,13 @@ const Signup = () => {
                 updateProfilePic(data.name, data.photoURL)
                     .then(() => {
                         const savedUser = { name: data.name, email: data.email }
-                        fetch("http://localhost:5000/users")
+                        fetch("http://localhost:5000/users", {
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(savedUser)
+                        })
                             .then(res => res.json())
                             .then(data => {
                                 if (data.insertedId) {
