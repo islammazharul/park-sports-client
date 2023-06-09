@@ -4,6 +4,7 @@ import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import { Helmet } from 'react-helmet';
 import { FaUsers, FaTrashAlt } from 'react-icons/fa';
+import Swal from 'sweetalert2';
 
 const ManageUsers = () => {
     // const { user } = useContext(AuthContext)
@@ -15,6 +16,23 @@ const ManageUsers = () => {
             return res.data;
         }
     })
+
+    const handleMakeAdmin = user => {
+        axiosSecure.patch(`/users/admin/${user._id}`)
+            .then(data => {
+                if (data.modifiedCount) {
+                    refetch()
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: `${user.name} make admin now!`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
+    }
+
     return (
         <div className='w-full'>
             <Helmet>
@@ -37,7 +55,7 @@ const ManageUsers = () => {
                     </thead>
                     <tbody>
                         {
-                            users.length > 0 && users.map((user, index) => <>
+                            users.length > 0 && users.map((user, index) =>
 
                                 <tr key={user._id}>
 
@@ -46,17 +64,19 @@ const ManageUsers = () => {
                                     <td>{user.email}</td>
                                     <td>{user.role}</td>
                                     <td>
+
                                         {
-                                            user.role === 'admin' ? 'admin' : <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost btn-xs bg-yellow-600 text-white">Make Admin</button>
+                                            user.role === 'admin' && 'instructor' ? <button disabled onClick={() => handleMakeAdmin(user)} className="btn btn-ghost btn-xs bg-yellow-600 text-white">Make Admin</button> : <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost btn-xs bg-yellow-600 text-white">Make Admin</button>
                                         }
+
                                     </td>
                                     <td>
                                         {
-                                            user.role === 'admin' ? 'admin' : <button onClick={() => handleMakeInstructor(user)} className="btn btn-ghost btn-xs bg-indigo-600 text-white">Make Instructor</button>
+                                            user.role === 'admin' && 'instructor' ? <button disabled onClick={() => handleMakeInstructor(user)} className="btn btn-ghost btn-xs bg-indigo-600 text-white">Make Instructor</button> : <button onClick={() => handleMakeInstructor(user)} className="btn btn-ghost btn-xs bg-indigo-600 text-white">Make Instructor</button>
                                         }
                                     </td>
                                     <td><button onClick={() => handleDelete(user)} className="btn btn-ghost btn-small text-red-600"><FaTrashAlt></FaTrashAlt></button></td>
-                                </tr></>)
+                                </tr>)
                         }
                     </tbody>
                 </table>
