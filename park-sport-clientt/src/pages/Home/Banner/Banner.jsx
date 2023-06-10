@@ -12,7 +12,7 @@ const Banner = () => {
                     <h1 className='md:text-7xl text-3xl font-bold md:mb-5'>PARK<br /> SPORTS<br /> ACADEMY</h1>
                     <h4 className='md:text-xl font-semibold'>Park's Finest Youth Sports Training Programs</h4>
                     <button className="md:px-4 md:py-2 px-1 text-green-600 font-semibold bg-white shadow hover:bg-gray-100 md:mt-5"
-                    >Get Started
+                    >Enroll Now
                     </button>
                 </div>
             </div>

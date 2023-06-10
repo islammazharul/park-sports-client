@@ -35,17 +35,25 @@ const Login = () => {
 
     const handleGoogleSignIn = () => {
         googleSignIn()
-            .then(() => {
-                Swal.fire({
-                    title: 'User Login Successfully.',
-                    showClass: {
-                        popup: 'animate__animated animate__fadeInDown'
-                    },
-                    hideClass: {
-                        popup: 'animate__animated animate__fadeOutUp'
-                    }
-                })
-                navigate(from, { replace: true })
+            .then(result => {
+                const loggedUser = result.user
+                const savedUser = { name: loggedUser.name, email: loggedUser.email, photo: loggedUser.photoURL }
+                axiosSecure.post("/users", savedUser)
+                    .then(data => {
+                        if (data.data.insertedId) {
+                            Swal.fire({
+                                title: 'User Login Successfully.',
+                                showClass: {
+                                    popup: 'animate__animated animate__fadeInDown'
+                                },
+                                hideClass: {
+                                    popup: 'animate__animated animate__fadeOutUp'
+                                }
+                            })
+                            navigate(from, { replace: true })
+                        }
+                    })
+
             })
             .catch(error => {
                 console.log(error.message);

@@ -39,12 +39,13 @@ const AuthProvider = ({ children }) => {
     }
 
     const updateProfilePic = (name, photo) => {
+        // try {
+        //     await updateProfile(auth.currentUser, {
+        //         displayName: name, photoURL: photo
+        //     });
+        // } catch (error) { }
         return updateProfile(auth.currentUser, {
             displayName: name, photoURL: photo
-        }).then(() => {
-
-        }).catch(error => {
-
         })
     }
 

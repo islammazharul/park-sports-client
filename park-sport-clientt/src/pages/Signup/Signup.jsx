@@ -5,10 +5,12 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from '../../provider/AuthProvider';
 import Swal from 'sweetalert2';
 import { FcGoogle } from 'react-icons/fc';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const Signup = () => {
+    const [axiosSecure] = useAxiosSecure()
     const { register, reset, handleSubmit, formState: { errors }, watch } = useForm();
-    const { createUser, updateProfilePic } = useContext(AuthContext);
+    const { createUser, googleSignIn, updateProfilePic } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
@@ -16,23 +18,17 @@ const Signup = () => {
 
 
     const onSubmit = data => {
+        console.log(data);
         createUser(data.email, data.password)
             .then(result => {
                 const loggedUser = result.user
                 console.log("logged user", loggedUser);
-                updateProfilePic(data.name, data.photoURL)
+                updateProfilePic(data.name, data.photo)
                     .then(() => {
-                        const savedUser = { name: data.name, email: data.email }
-                        fetch("http://localhost:5000/users", {
-                            method: 'POST',
-                            headers: {
-                                'content-type': 'application/json'
-                            },
-                            body: JSON.stringify(savedUser)
-                        })
-                            .then(res => res.json())
+                        const savedUser = { name: data.name, email: data.email, photo: data.photo }
+                        axiosSecure.post("/users", savedUser)
                             .then(data => {
-                                if (data.insertedId) {
+                                if (data.data.insertedId) {
                                     reset()
                                     Swal.fire({
                                         position: 'top-end',
@@ -45,29 +41,32 @@ const Signup = () => {
                                 }
                             })
                     })
-                    .catch(error => {
-                        console.log(error);
-                    })
+                    .catch(error => console.log(error.message))
             })
-            .catch(error => {
-                console.log(error.message);
-            })
-        console.log(data);
+            .catch(error => console.log(error.message))
     }
 
     const handleGoogleSignIn = () => {
         googleSignIn()
-            .then(() => {
-                Swal.fire({
-                    title: 'User Login Successfully.',
-                    showClass: {
-                        popup: 'animate__animated animate__fadeInDown'
-                    },
-                    hideClass: {
-                        popup: 'animate__animated animate__fadeOutUp'
-                    }
-                })
-                navigate(from, { replace: true })
+            .then(result => {
+                const loggedUser = result.user
+                const savedUser = { name: loggedUser.displayName, email: loggedUser.email, photo: loggedUser.photoURL }
+                axiosSecure.post("/users", savedUser)
+                    .then(data => {
+                        if (data.data.insertedId) {
+                            Swal.fire({
+                                title: 'User Login Successfully.',
+                                showClass: {
+                                    popup: 'animate__animated animate__fadeInDown'
+                                },
+                                hideClass: {
+                                    popup: 'animate__animated animate__fadeOutUp'
+                                }
+                            })
+                            navigate(from, { replace: true })
+                        }
+                    })
+
             })
             .catch(error => {
                 console.log(error.message);
