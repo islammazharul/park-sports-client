@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
+import SectionTitle from '../../../../components/SectionTitle/SectionTitle';
 
 const MyClasses = () => {
     const { user } = useContext(AuthContext)
@@ -23,13 +24,11 @@ const MyClasses = () => {
             <Helmet>
                 <title>My Classes | Park Sports</title>
             </Helmet>
-            <div className='uppercase font-semibold flex justify-evenly items-center h-[60px]'>
-                <h3 className="text-3xl">Total Items: {sports?.length}</h3>
-            </div>
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+            <SectionTitle heading="MY CLASSES"></SectionTitle>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mt-10'>
                 {
-                    sports.map(sport => <>
-                        <div className=" mx-auto rounded-lg shadow-md lg:flex md:flex shadow-sky-600">
+                    sports.map((sport, index) =>
+                        <div key={index} className=" mx-auto rounded-lg shadow-md lg:flex md:flex shadow-sky-600">
                             <img
                                 className="object-cover w-full md:w-1/2 lg:w-1/2"
                                 src={sport.image}
@@ -55,7 +54,7 @@ const MyClasses = () => {
                                 <button className="btn btn-sm bg-green-500">Update</button>
                             </div>
                         </div>
-                    </>
+
                     )
                 }
             </div>

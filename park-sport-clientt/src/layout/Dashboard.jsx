@@ -8,13 +8,13 @@ const Dashboard = () => {
     const { user } = useContext(AuthContext)
 
     const userLinks = [
-        { link: `/dashboard/mySelectedClass`, label: "My Selected Classes" },
-        { link: `/dashboard/myEnrolle`, label: "My Enrolled Classes" },
+        { link: `/dashboard/mySelectedClass`, label: <button>My Selected Classes <span class="px-2 py-1 text-sm text-black bg-white rounded-full">9</span></button> },
+        { link: `/dashboard/myEnrolle`, label: <button>My Enrolled Classes <span class="px-2 py-1 text-sm text-black bg-white rounded-full">9</span></button> },
         // { link: `/`, label: "Back to Home" },
     ];
     const instructorLinks = [
         { link: `/dashboard/addClasses`, label: 'Add a Class' },
-        { link: `/dashboard/myClasses`, label: 'My Classes' },
+        { link: `/dashboard/myClasses`, label: 'My Classes', },
     ];
     const adminLinks = [
         { link: `/dashboard/manageClasses`, label: 'Manage Classes' },

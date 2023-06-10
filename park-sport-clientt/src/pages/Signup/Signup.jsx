@@ -22,7 +22,7 @@ const Signup = () => {
                 console.log("logged user", loggedUser);
                 updateProfilePic(data.name, data.photoURL)
                     .then(() => {
-                        const savedUser = { name: data.name, email: data.email, role: "student" }
+                        const savedUser = { name: data.name, email: data.email }
                         fetch("http://localhost:5000/users", {
                             method: 'POST',
                             headers: {
@@ -78,14 +78,14 @@ const Signup = () => {
 
     const validatePasswordMatch = (value) => {
         const password = watch('password', '');
-        return value === password || "Passwords don't match.";
+        return value === password || alert("Passwords don't match.");
     };
 
 
     return (
         <>
             <Helmet>
-                <title>PARK SPORTS ACADEMY | Sign Up</title>
+                <title>Sign Up | PARK SPORTS ACADEMY</title>
             </Helmet>
             <div className="relative flex flex-col justify-center h-screen mb-20">
                 <div className="lg:flex lg:gap-x-4 justify-center items-center mx-4">

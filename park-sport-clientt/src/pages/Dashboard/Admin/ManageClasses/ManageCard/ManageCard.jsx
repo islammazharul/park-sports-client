@@ -26,8 +26,8 @@ const ManageCard = ({ sport, handleApprove, handleDeny }) => {
                     refetch()
                     Swal.fire({
                         position: 'top-end',
-                        icon: 'error',
-                        title: 'Class has been denied!!!',
+                        icon: 'success',
+                        title: 'Feedback posted successfully',
                         showConfirmButton: false,
                         timer: 1500
                     })

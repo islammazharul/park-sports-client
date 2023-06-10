@@ -7,7 +7,7 @@ import { Helmet } from 'react-helmet-async';
 
 const Home = () => {
     return (
-        <div>
+        <div data-theme="light">
             <Helmet>
                 <title>PARK SPORTS ACADEMY | Home</title>
             </Helmet>

@@ -10,10 +10,6 @@ const AddClasses = () => {
     const { register, handleSubmit, reset } = useForm();
     const { user } = useContext(AuthContext)
     const image_hosting_url = `https://api.imgbb.com/1/upload?key=${imag_hosting_token}`
-    console.log(image_hosting_url);
-
-
-
 
     const onSubmit = data => {
         const formData = new FormData()
@@ -54,8 +50,6 @@ const AddClasses = () => {
                         })
                 }
             })
-
-
 
     }
 

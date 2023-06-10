@@ -1,9 +1,14 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
+import SectionTitle from '../../../../components/SectionTitle/SectionTitle';
 
 const Payment = () => {
     return (
         <div>
-            <h2>My Payment</h2>
+            <Helmet>
+                <title>Payment | Park Sports</title>
+            </Helmet>
+            <SectionTitle heading="PROCEED TO PAYMENT"></SectionTitle>
         </div>
     );
 };
