@@ -41,7 +41,7 @@ const ManageClasses = () => {
                     refetch()
                     Swal.fire({
                         position: 'top-end',
-                        icon: 'success',
+                        icon: 'error',
                         title: 'Class has been denied!!!',
                         showConfirmButton: false,
                         timer: 1500
