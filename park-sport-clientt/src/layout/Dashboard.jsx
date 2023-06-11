@@ -1,14 +1,16 @@
 import React, { useContext } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
+import useSelectClass from '../hooks/useSelectClass';
 // import UserHome from '../pages/Dashboard/User/UserHome/UserHome';
 // import { FaBars, FaBook, FaHome, FaUsers, FaUtensils, FaWallet } from 'react-icons/fa';
 
 const Dashboard = () => {
     const { user } = useContext(AuthContext)
+    const [selectClass, refetch] = useSelectClass()
 
     const userLinks = [
-        { link: `/dashboard/mySelectedClass`, label: <p>My Selected Classes <span className="px-2 py-1 text-sm text-black bg-white rounded-full">9</span></p> },
+        { link: `/dashboard/mySelectedClass`, label: <p>My Selected Classes <span className="px-2 py-1 text-sm text-black bg-white rounded-full">{selectClass.length}</span></p> },
         { link: `/dashboard/myEnrolle`, label: <p>My Enrolled Classes <span className="px-2 py-1 text-sm text-black bg-white rounded-full">9</span></p> },
         // { link: `/`, label: "Back to Home" },
     ];

@@ -13,7 +13,7 @@ const useSelectClass = () => {
         queryKey: ['selectClass', user?.email],
         queryFn: async () => {
             const res = await axiosSecure.get(`/select?email=${user?.email}`)
-            console.log(`res from axios`, res);
+            // console.log(`res from axios`, res);
             return res.data;
         }
     })

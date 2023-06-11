@@ -1,12 +1,55 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import SectionTitle from '../../../../components/SectionTitle/SectionTitle';
 import useSelectClass from '../../../../hooks/useSelectClass';
 import { Link } from 'react-router-dom';
 import { FaTrashAlt } from 'react-icons/fa';
+import Swal from 'sweetalert2';
+import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 
 const MySelectedClass = () => {
     const [selectClass, refetch] = useSelectClass()
+    const [axiosSecure] = useAxiosSecure()
+    const [paymentData, setPaymentData] = useState({})
+    // console.log(paymentData);
+
+
+
+    const handleDelete = select => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.delete(`/select/${select._id}`)
+                    .then(res => {
+                        if (res.data.deletedCount > 0) {
+                            refetch()
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+                        }
+                    })
+            }
+        })
+    }
+
+    const handlePay = select => {
+        const paymentInfo = {
+            price: select.price,
+            class_name: select.class_name
+        }
+        setPaymentData(paymentInfo)
+        // console.log(paymentInfo);
+    }
+
     return (
         <div className='w-full max-h-full'>
             <Helmet>
@@ -63,11 +106,11 @@ const MySelectedClass = () => {
                                 <td className='text-start'>$ {select.price}</td>
                                 <td>
                                     <Link to="/dashboard/payment">
-                                        <button className='btn btn-warning btn-sm'>pay</button>
+                                        <button onClick={() => handlePay(select)} className='btn btn-warning btn-sm'>pay</button>
                                     </Link>
                                 </td>
                                 <td>
-                                    <button onClick={() => handleDelete(select)} className="btn btn-ghost btn-small bg-red-600 text-white"><FaTrashAlt></FaTrashAlt></button>
+                                    <button onClick={() => handleDelete(select)} className="btn btn-ghost btn-small text-red-600"><FaTrashAlt></FaTrashAlt></button>
                                 </td>
                             </tr>)
                         }
