@@ -2,8 +2,6 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../../provider/AuthProvider';
 import { Helmet } from 'react-helmet';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
-import { useQuery } from '@tanstack/react-query';
-import { Link } from 'react-router-dom';
 import SectionTitle from '../../../../components/SectionTitle/SectionTitle';
 
 const MyClasses = () => {

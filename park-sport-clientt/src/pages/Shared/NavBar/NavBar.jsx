@@ -8,7 +8,6 @@ import { FaBars } from 'react-icons/fa';
 const NavBar = () => {
     const [navbar, setNavbar] = useState(false);
     const { user, logOut } = useContext(AuthContext);
-    console.log("user", user);
 
     const handleLogOut = () => {
         logOut()
@@ -67,7 +66,7 @@ const NavBar = () => {
                             </li>
                         </ul>
 
-                        <div className="mt-2 lg:hidden md:inline-block">
+                        <div className="mt-2 lg:hidden md:inline-block flex justify-between items-center flex-row-reverse">
                             {
                                 user ?
                                     <div className="tooltip tooltip-left w-10" data-tip={user.displayName}>
@@ -90,7 +89,7 @@ const NavBar = () => {
                         </div>
                     </div>
                 </div>
-                <div className="hidden space-x-2 md:inline-block">
+                <div className="hidden lg:flex md:inline-block items-center gap-1">
                     {
                         user ?
                             <div className="tooltip tooltip-left w-10" data-tip={user.displayName}>

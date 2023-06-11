@@ -22,10 +22,10 @@ const Signup = () => {
         createUser(data.email, data.password)
             .then(result => {
                 const loggedUser = result.user
-                console.log("logged user", loggedUser);
+                // console.log("logged user", loggedUser);
                 updateProfilePic(data.name, data.photo)
                     .then(() => {
-                        const savedUser = { name: data.name, email: data.email, photo: data.photo }
+                        const savedUser = { name: data.name, email: data.email, photo: data.photo, role: 'student' }
                         axiosSecure.post("/users", savedUser)
                             .then(data => {
                                 if (data.data.insertedId) {
@@ -50,7 +50,7 @@ const Signup = () => {
         googleSignIn()
             .then(result => {
                 const loggedUser = result.user
-                const savedUser = { name: loggedUser.displayName, email: loggedUser.email, photo: loggedUser.photoURL }
+                const savedUser = { name: loggedUser.displayName, email: loggedUser.email, photo: loggedUser.photoURL, role: 'student' }
                 axiosSecure.post("/users", savedUser)
                     .then(data => {
                         if (data.data.insertedId) {
@@ -144,7 +144,7 @@ const Signup = () => {
                                     Password
                                 </label>
                                 <input
-
+                                    // TODO PASS    
                                     type="password" name="password" placeholder="Enter Your Password" {...register("password", {
                                         required: true,
                                         pattern: /(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/,

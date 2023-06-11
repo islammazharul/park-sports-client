@@ -5,8 +5,10 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import Swal from 'sweetalert2';
 import { FcGoogle } from 'react-icons/fc';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const Login = () => {
+    const [axiosSecure] = useAxiosSecure()
     const { register, reset, handleSubmit, formState: { errors } } = useForm();
     const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext)
     const navigate = useNavigate();
