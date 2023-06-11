@@ -13,7 +13,7 @@ const AddClasses = () => {
 
     const onSubmit = data => {
         const formData = new FormData()
-        formData.append('image', data.image[0])
+        formData.append('image', data.class_image[0])
 
         fetch(image_hosting_url, {
             method: 'POST',
@@ -24,8 +24,8 @@ const AddClasses = () => {
                 console.log(imageResponse);
                 if (imageResponse.success) {
                     const imgURL = imageResponse.data.display_url
-                    const { class_name, instructor_name, email, price, available_seat, description } = data;
-                    const newClass = { class_name, instructor_name, email, price: parseFloat(price), available_seat: parseInt(available_seat), description, image: imgURL, status: "pending", total_enroll: parseInt(0), feedback: "" }
+                    const { class_name, instructor_name, instructor_image, email, price, available_seat, description } = data;
+                    const newClass = { class_name, instructor_name, instructor_image: instructor_image, email, price: parseFloat(price), available_seat: parseInt(available_seat), description, class_image: imgURL, status: "pending", total_enroll: parseInt(0), feedback: "" }
                     console.log(newClass);
                     fetch("http://localhost:5000/sports", {
                         method: 'POST',
@@ -69,7 +69,7 @@ const AddClasses = () => {
                     <label className="label">
                         <span className="label-text">Class Image*</span>
                     </label>
-                    <input type="file" {...register("image", { required: true })} className="file-input file-input-bordered w-full " />
+                    <input type="file" {...register("class_image", { required: true })} className="file-input file-input-bordered w-full " />
                 </div>
                 <div className="form-control w-full mb-4">
                     <label className="label">
@@ -77,6 +77,14 @@ const AddClasses = () => {
                     </label>
                     <input type="text" defaultValue={user?.displayName} placeholder={user?.displayName}
                         {...register("instructor_name", { required: true, maxLength: 120 })}
+                        className="input input-bordered w-full " />
+                </div>
+                <div className="form-control w-full mb-4">
+                    <label className="label">
+                        <span className="label-text font-semibold">Instructor Image*</span>
+                    </label>
+                    <input type="text" defaultValue={user?.photoURL} placeholder={user?.photoURL}
+                        {...register("instructor_image", { required: true, })}
                         className="input input-bordered w-full " />
                 </div>
                 <div className="form-control w-full mb-4">

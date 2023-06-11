@@ -27,7 +27,7 @@ const Classes = () => {
         console.log(sport);
         if (user && user?.email) {
             const selectedClass = {
-                classId: sport._id, class_name: sport.class_name, instructor_name: sport.instructor_name,
+                classId: sport._id, class_name: sport.class_name, class_image: sport.class_image, instructor_name: sport.instructor_name, instructor_image: sport.instructor_image,
                 email: sport.email, available_seat: sport.available_seat, price: sport.price, total_enroll: sport.total_enroll
             }
             axiosSecure.post("/select", selectedClass)
@@ -78,7 +78,7 @@ const Classes = () => {
                             <div className='relative'>
                                 <img
                                     className=" object-cover w-full h-48"
-                                    src={sport.image}
+                                    src={sport.class_image}
                                     alt="image"
                                 />
                                 <p className='absolute top-0 right-0 text-center text-white font-semibold  bg-red-400 w-24'>{sport.total_enroll} Students</p>

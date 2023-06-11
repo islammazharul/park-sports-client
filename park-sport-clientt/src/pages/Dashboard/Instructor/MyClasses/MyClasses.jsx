@@ -29,7 +29,7 @@ const MyClasses = () => {
                         <div key={index} className=" mx-auto rounded-lg shadow-md lg:flex md:flex shadow-sky-600">
                             <img
                                 className="object-cover w-full md:w-1/2 lg:w-1/2"
-                                src={sport.image}
+                                src={sport.class_image}
                                 alt="image"
                             />
                             <div className="px-6 py-4">

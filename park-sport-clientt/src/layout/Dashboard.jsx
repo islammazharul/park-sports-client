@@ -8,8 +8,8 @@ const Dashboard = () => {
     const { user } = useContext(AuthContext)
 
     const userLinks = [
-        { link: `/dashboard/mySelectedClass`, label: <button>My Selected Classes <span class="px-2 py-1 text-sm text-black bg-white rounded-full">9</span></button> },
-        { link: `/dashboard/myEnrolle`, label: <button>My Enrolled Classes <span class="px-2 py-1 text-sm text-black bg-white rounded-full">9</span></button> },
+        { link: `/dashboard/mySelectedClass`, label: <p>My Selected Classes <span className="px-2 py-1 text-sm text-black bg-white rounded-full">9</span></p> },
+        { link: `/dashboard/myEnrolle`, label: <p>My Enrolled Classes <span className="px-2 py-1 text-sm text-black bg-white rounded-full">9</span></p> },
         // { link: `/`, label: "Back to Home" },
     ];
     const instructorLinks = [
@@ -29,8 +29,8 @@ const Dashboard = () => {
                 {/* Sidebar Content */}
                 <div className="p-4">
                     <ul className="mt-4">
-                        {userLinks?.map((link) => (
-                            <li key={link?.label} className="mb-2">
+                        {userLinks?.map((link, index) => (
+                            <li key={index} className="mb-2">
                                 <Link
                                     className="text-gray-300 hover:text-white hover:bg-gray-700 px-2 py-1 rounded-md block"
                                     to={link.link}
