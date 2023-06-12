@@ -71,6 +71,7 @@ const Checkout = ({ data, price }) => {
                 transactionId: paymentIntent.id,
                 price,
                 date: new Date(),
+                instructor_name: data.instructor_name,
                 classId: data.classId,
                 selectId: data._id,
                 status: 'service pending',
@@ -88,9 +89,12 @@ const Checkout = ({ data, price }) => {
     }
 
     return (
-        <>
-            <form className="m-8" onSubmit={handleSubmit}>
+        <div className='bg-gray-300 w-full lg:w-1/2 mx-auto lg:py-2 text-center mt-20'>
+            <h2 className='lg:text-xl font-semibold text-center uppercase mt-10'>class name : <span className='text-green-500'>{data.class_name}</span></h2>
+            <h2 className='lg:text-xl font-semibold text-center uppercase'>price : $<span className='text-green-500'>{data.price}</span></h2>
+            <form className="mx-auto text-center" onSubmit={handleSubmit}>
                 <CardElement
+
                     options={{
                         style: {
                             base: {
@@ -106,7 +110,7 @@ const Checkout = ({ data, price }) => {
                         },
                     }}
                 />
-                <button className="btn btn-primary btn-sm mt-4" type="submit" disabled={!stripe || !clientSecret || processing}>
+                <button className="btn bg-yellow-500 btn-sm mt-4" type="submit" disabled={!stripe || !clientSecret || processing}>
                     Pay
                 </button>
             </form>
@@ -116,7 +120,7 @@ const Checkout = ({ data, price }) => {
             {
                 transactionId && <p className="text-green-500">Transaction complete with transactionId: {transactionId}</p>
             }
-        </>
+        </div>
     );
 };
 

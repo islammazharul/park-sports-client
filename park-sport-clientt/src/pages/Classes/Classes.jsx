@@ -17,15 +17,12 @@ const Classes = () => {
         enabled: !loading && !!user?.email && !!localStorage.getItem('access-token'),
         queryKey: ["sports"],
         queryFn: async () => {
-            const res = await axiosSecure.get(`/sports`)
+            const res = await axiosSecure.get(`/allClasses`)
             return res.data;
         }
     })
 
-    const result = sports.filter(sport => sport.status === 'approved')
-
     const handleEnroll = sport => {
-        // console.log(sport);
         if (user && user?.email) {
             const selectedClass = {
                 classId: sport._id, class_name: sport.class_name, class_image: sport.class_image, instructor_name: sport.instructor_name, instructor_image: sport.instructor_image,
@@ -71,7 +68,7 @@ const Classes = () => {
             <SectionTitle heading="All Sports Classes" subHeading="We’re fanatical about instilling confidence, strength and focus in young athletes. So, we’ve built one of the most successful youth sports training programs available today."></SectionTitle>
             <div className='lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:w-9/12 mx-auto my-8'>
                 {
-                    result.map(sport =>
+                    sports.map(sport =>
                         <div key={sport._id} className="max-w-sm shadow-md shadow-green-500">
                             <h4 className="text-center py-3 text-xl font-semibold tracking-tight text-white bg-green-500">
                                 {sport.class_name}

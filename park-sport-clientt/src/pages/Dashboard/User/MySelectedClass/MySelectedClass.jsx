@@ -49,9 +49,7 @@ const MySelectedClass = () => {
                 <title>My Selected Class | Park Sports</title>
             </Helmet>
             <SectionTitle heading="MY SELECTED CLASSES"></SectionTitle>
-            <div className='uppercase font-semibold flex justify-evenly items-center h-[60px] sticky top-0 z-50'>
 
-            </div>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
                     {/* head */}

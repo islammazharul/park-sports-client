@@ -16,7 +16,7 @@ const Payment = () => {
     console.log(data);
 
     return (
-        <div>
+        <div className='w-full mt-20'>
             <Helmet>
                 <title>Payment | Park Sports</title>
             </Helmet>

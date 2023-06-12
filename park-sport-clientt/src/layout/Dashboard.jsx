@@ -5,18 +5,20 @@ import useSelectClass from '../hooks/useSelectClass';
 import useAdmin from '../hooks/useAdmin';
 import useInstructor from '../hooks/useInstructor';
 import useStudent from '../hooks/useStudent';
+import useEnrollClass from '../hooks/useEnrollClass';
 // import UserHome from '../pages/Dashboard/User/UserHome/UserHome';
 // import { FaBars, FaBook, FaHome, FaUsers, FaUtensils, FaWallet } from 'react-icons/fa';
 
 const Dashboard = () => {
     const { user } = useContext(AuthContext)
-    const [selectClass, refetch] = useSelectClass()
+    const [selectClass] = useSelectClass()
+    const [enroll] = useEnrollClass()
     const [isAdmin] = useAdmin()
     const [isInstructor] = useInstructor()
 
     const userLinks = [
-        { link: `/dashboard/mySelectedClass`, label: <p>My Selected Classes <span className="px-2 py-1 text-sm text-black bg-white rounded-full">{selectClass.length}</span></p> },
-        { link: `/dashboard/myEnrolle`, label: <p>My Enrolled Classes <span className="px-2 py-1 text-sm text-black bg-white rounded-full">0</span></p> },
+        { link: `/dashboard/mySelectedClass`, label: <p>My Selected Classes <span className="px-2 py-1 text-sm text-black bg-white rounded-full">{selectClass?.length}</span></p> },
+        { link: `/dashboard/myEnrolle`, label: <p>My Enrolled Classes <span className="px-2 py-1 text-sm text-black bg-white rounded-full">{enroll?.length}</span></p> },
         // { link: `/`, label: "Back to Home" },
     ];
     const instructorLinks = [
