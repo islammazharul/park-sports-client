@@ -8,9 +8,10 @@ import Swal from 'sweetalert2';
 import SectionTitle from '../../../../components/SectionTitle/SectionTitle';
 
 const ManageUsers = () => {
-    // const { user } = useContext(AuthContext)
+    const { user, loading } = useContext(AuthContext)
     const [axiosSecure] = useAxiosSecure();
     const { data: users = [], refetch } = useQuery({
+        enabled: !loading && !!user?.email && !!localStorage.getItem('access-token'),
         queryKey: ["users"],
         queryFn: async () => {
             const res = await axiosSecure.get("/users")

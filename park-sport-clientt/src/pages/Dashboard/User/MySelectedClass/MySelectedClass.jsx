@@ -10,8 +10,6 @@ import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 const MySelectedClass = () => {
     const [selectClass, refetch] = useSelectClass()
     const [axiosSecure] = useAxiosSecure()
-    const [paymentData, setPaymentData] = useState({})
-    // console.log(paymentData);
 
 
 
@@ -42,12 +40,7 @@ const MySelectedClass = () => {
     }
 
     const handlePay = select => {
-        const paymentInfo = {
-            price: select.price,
-            class_name: select.class_name
-        }
-        setPaymentData(paymentInfo)
-        // console.log(paymentInfo);
+
     }
 
     return (
@@ -57,14 +50,13 @@ const MySelectedClass = () => {
             </Helmet>
             <SectionTitle heading="MY SELECTED CLASSES"></SectionTitle>
             <div className='uppercase font-semibold flex justify-evenly items-center h-[60px] sticky top-0 z-50'>
-                <h3 className="text-3xl">Total Items: {selectClass.length}</h3>
 
             </div>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
                     {/* head */}
                     <thead>
-                        <tr>
+                        <tr className='bg-green-500 text-white'>
                             <th>#</th>
                             <th>INSTRUCTOR IMAGE</th>
                             <th>INSTRUCTOR NAME</th>
@@ -105,7 +97,7 @@ const MySelectedClass = () => {
 
                                 <td className='text-start'>$ {select.price}</td>
                                 <td>
-                                    <Link to="/dashboard/payment">
+                                    <Link to="/dashboard/payment" state={select}>
                                         <button onClick={() => handlePay(select)} className='btn btn-warning btn-sm'>pay</button>
                                     </Link>
                                 </td>

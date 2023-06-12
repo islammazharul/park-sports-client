@@ -8,12 +8,13 @@ import Swal from 'sweetalert2';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const Classes = () => {
-    const { user } = useContext(AuthContext)
+    const { user, loading } = useContext(AuthContext)
     const [axiosSecure] = useAxiosSecure();
     const navigate = useNavigate();
     const location = useLocation();
 
     const { data: sports = [], refetch } = useQuery({
+        enabled: !loading && !!user?.email && !!localStorage.getItem('access-token'),
         queryKey: ["sports"],
         queryFn: async () => {
             const res = await axiosSecure.get(`/sports`)
@@ -24,7 +25,7 @@ const Classes = () => {
     const result = sports.filter(sport => sport.status === 'approved')
 
     const handleEnroll = sport => {
-        console.log(sport);
+        // console.log(sport);
         if (user && user?.email) {
             const selectedClass = {
                 classId: sport._id, class_name: sport.class_name, class_image: sport.class_image, instructor_name: sport.instructor_name, instructor_image: sport.instructor_image,

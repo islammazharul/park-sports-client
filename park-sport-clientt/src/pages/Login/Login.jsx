@@ -10,7 +10,7 @@ import useAxiosSecure from '../../hooks/useAxiosSecure';
 const Login = () => {
     const [axiosSecure] = useAxiosSecure()
     const { register, reset, handleSubmit, formState: { errors } } = useForm();
-    const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext)
+    const { signIn, googleSignIn } = useContext(AuthContext)
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";

@@ -1,11 +1,16 @@
 import React from 'react';
+import { FcSportsMode } from 'react-icons/fc';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
         <footer className="border-t bg-green-500 py-5">
             <div
-                className="container flex flex-wrap items-center justify-center px-4 py-8 mx-auto  lg:justify-between"
+                className="container flex flex-wrap items-center justify-center px-4 py-8 mx-auto  lg:justify-between space-y-5"
             >
+                <Link to="/">
+                    <h2 className="flex justify-center items-center text-xl font-bold text-white"><FcSportsMode className='h-8 w-8'></FcSportsMode><span>PARK SPORTS</span></h2>
+                </Link>
                 <div className="flex flex-wrap justify-center">
                     <ul className="flex items-center space-x-4">
                         <li>Home</li>
@@ -15,7 +20,7 @@ const Footer = () => {
                     </ul>
                 </div>
                 <div className="flex justify-center mt-4 lg:mt-0">
-                    <a>
+                    <a href='https://www.facebook.com/'>
                         <svg
                             fill="currentColor"
                             strokeLinecap="round"
@@ -29,7 +34,7 @@ const Footer = () => {
                             ></path>
                         </svg>
                     </a>
-                    <a className="ml-3">
+                    <a href='https://twitter.com/' className="ml-3">
                         <svg
                             fill="currentColor"
                             strokeLinecap="round"
@@ -43,7 +48,7 @@ const Footer = () => {
                             ></path>
                         </svg>
                     </a>
-                    <a className="ml-3">
+                    <a href='https://www.instagram.com/' className="ml-3">
                         <svg
                             fill="none"
                             stroke="currentColor"
@@ -59,7 +64,7 @@ const Footer = () => {
                             ></path>
                         </svg>
                     </a>
-                    <a className="ml-3">
+                    <a href='https://www.linkedin.com/' className="ml-3">
                         <svg
                             fill="currentColor"
                             stroke="currentColor"

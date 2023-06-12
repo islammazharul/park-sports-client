@@ -4,6 +4,7 @@ import { AuthContext } from '../../../provider/AuthProvider';
 import Swal from 'sweetalert2';
 import { RxCross2 } from 'react-icons/rx';
 import { FaBars } from 'react-icons/fa';
+import { FcSportsMode } from 'react-icons/fc';
 
 const NavBar = () => {
     const [navbar, setNavbar] = useState(false);
@@ -31,8 +32,8 @@ const NavBar = () => {
             <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
                 <div>
                     <div className="flex items-center justify-between py-3 md:py-5 md:block">
-                        <Link>
-                            <h2 className="text-2xl font-bold text-white">LOGO</h2>
+                        <Link to="/">
+                            <h2 className="flex justify-center items-center text-xl font-bold text-white"><FcSportsMode className='h-8 w-8'></FcSportsMode><span>PARK SPORTS</span></h2>
                         </Link>
                         <div className="md:hidden">
                             <button
@@ -61,9 +62,11 @@ const NavBar = () => {
                             <li className="text-sm font-semibold text-white hover:text-indigo-200">
                                 <Link to="/classes">CLASSES</Link>
                             </li>
-                            <li className="text-sm font-semibold text-white hover:text-indigo-200">
-                                <Link to="/dashboard">DASHBOARD</Link>
-                            </li>
+                            {
+                                user && user.email ? <li className="text-sm font-semibold text-white hover:text-indigo-200">
+                                    <Link to="/dashboard">DASHBOARD</Link>
+                                </li> : ""
+                            }
                         </ul>
 
                         <div className="mt-2 lg:hidden md:inline-block flex justify-between items-center flex-row-reverse">
@@ -75,10 +78,10 @@ const NavBar = () => {
 
                             }
                             {
-                                user ? <a onClick={handleLogOut} className="inline-block  px-3 py-1 text-center text-green-500 bg-white shadow hover:bg-gray-100"
+                                user ? <button onClick={handleLogOut} className="inline-block  px-3 py-1 text-center text-green-500 bg-white shadow hover:bg-gray-100"
                                 >
                                     LOG OUT
-                                </a> : <Link to="/login"
+                                </button> : <Link to="/login"
                                     className="inline-block  px-3 py-1 text-center text-white bg-gray-600 shadow hover:bg-gray-800"
                                 >
                                     SIGN IN
@@ -98,12 +101,12 @@ const NavBar = () => {
 
                     }
                     {
-                        user ? <a
+                        user ? <button
                             onClick={handleLogOut}
                             className="px-4 py-2 text-sm font-semibold text-green-500 bg-white shadow hover:bg-gray-100"
                         >
                             LOG OUT
-                        </a> : <Link to="/login"
+                        </button> : <Link to="/login"
 
                             className="px-4 py-2 text-sm font-semibold text-white bg-gray-600 shadow hover:bg-gray-800"
                         >

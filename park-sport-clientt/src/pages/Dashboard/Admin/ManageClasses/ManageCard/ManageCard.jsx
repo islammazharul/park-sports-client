@@ -76,7 +76,9 @@ const ManageCard = ({ sport, handleApprove, handleDeny }) => {
                     }
 
                     {/* modal for feedback */}
-                    <label htmlFor={`my-modal${_id}`} className="btn btn-sm bg-yellow-500">Feedback</label>
+                    {
+                        status === 'pending' ? <label disabled htmlFor={`my-modal${_id}`} className="btn btn-sm bg-yellow-500">Feedback</label> : <label htmlFor={`my-modal${_id}`} className="btn btn-sm bg-yellow-500">Feedback</label>
+                    }
                     < input type="checkbox" id={`my-modal${_id}`} className="modal-toggle" />
                     <dialog id={`my_modal_1${_id}`} className="modal">
                         <form onSubmit={handleFeedback} method="dialog" className="modal-box bg-green-400 rounded-sm">
@@ -85,7 +87,7 @@ const ManageCard = ({ sport, handleApprove, handleDeny }) => {
                                 <textarea type="text" name="message" placeholder="Write Your Feedback" className="textarea textarea-bordered w-full" ></textarea>
                             </div>
                             <div className="modal-action flex justify-end items-end">
-                                <button className="btn btn-sm btn-warning" type='submit'>submit</button>
+                                <button className="btn btn-sm btn-warning" type='submit'>send</button>
                                 <label htmlFor={`my-modal${_id}`} className="btn btn-sm btn-primary">Back</label>
                             </div>
                         </form>

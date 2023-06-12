@@ -15,12 +15,17 @@ import MySelectedClass from "../pages/Dashboard/User/MySelectedClass/MySelectedC
 import MyEnrolle from "../pages/Dashboard/User/MyEnrolle/MyEnrolle";
 import ManageClasses from "../pages/Dashboard/Admin/ManageClasses/ManageClasses";
 import ManageUsers from "../pages/Dashboard/Admin/ManageUsers/ManageUsers";
+import ErrorPage from "../pages/Error/ErrorPage";
+import InstructorRoute from "./InstructorRoute";
+import PrivateRoute from "./PrivateRoute";
+import AdminRoute from "./AdminRoute";
 
 
 export const router = createBrowserRouter([
     {
         path: "/",
         element: <Main></Main>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: "/",
@@ -46,7 +51,7 @@ export const router = createBrowserRouter([
     },
     {
         path: "dashboard",
-        element: <Dashboard></Dashboard>,
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children: [
             {
                 path: "mySelectedClass",
@@ -58,25 +63,25 @@ export const router = createBrowserRouter([
             },
             {
                 path: "payment",
-                element: <Payment></Payment>
+                element: <Payment></Payment>,
             },
             // instructor route
             {
                 path: "addClasses",
-                element: <AddClasses></AddClasses>
+                element: <InstructorRoute><AddClasses></AddClasses></InstructorRoute>
             },
             {
                 path: "myClasses",
-                element: <MyClasses></MyClasses>
+                element: <InstructorRoute><MyClasses></MyClasses></InstructorRoute>
             },
             // admin route
             {
                 path: "manageClasses",
-                element: <ManageClasses></ManageClasses>
+                element: <AdminRoute><ManageClasses></ManageClasses></AdminRoute>
             },
             {
                 path: "manageUsers",
-                element: <ManageUsers></ManageUsers>
+                element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
             }
         ]
     }

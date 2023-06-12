@@ -3,7 +3,7 @@ import SectionTitle from '../../../components/SectionTitle/SectionTitle';
 
 const PopularClass = ({ heading, subHeading }) => {
     return (
-        <div>
+        <div className='mt-10'>
             <SectionTitle heading="Most Popular Classes" subHeading="We thrive on building a player’s technical foundation and applying those skills into an appropriate competitive environment.  Most of our players have made a long-term commitment to become the best player they can, knowing that it involves hard work and dedication to reach their full potential."></SectionTitle>
 
             <div className='lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:w-9/12 mx-auto my-8'>
