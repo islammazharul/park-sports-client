@@ -40,9 +40,32 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user
                 const savedUser = { name: loggedUser.name, email: loggedUser.email, photo: loggedUser.photoURL }
-                axiosSecure.post("/users", savedUser)
+                // axiosSecure.post("/users", savedUser)
+                //     .then(data => {
+                //         if (data.data.insertedId) {
+                //             Swal.fire({
+                //                 title: 'User Login Successfully.',
+                //                 showClass: {
+                //                     popup: 'animate__animated animate__fadeInDown'
+                //                 },
+                //                 hideClass: {
+                //                     popup: 'animate__animated animate__fadeOutUp'
+                //                 }
+                //             })
+                //             navigate(from, { replace: true })
+                //         }
+                //     })
+                fetch("http://localhost:5000/users", {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json"
+                    },
+                    body: JSON.stringify(savedUser)
+                })
+                    .then(res => res.json())
                     .then(data => {
-                        if (data.data.insertedId) {
+                        if (data.insertedId) {
+                            reset()
                             Swal.fire({
                                 title: 'User Login Successfully.',
                                 showClass: {
@@ -55,6 +78,7 @@ const Login = () => {
                             navigate(from, { replace: true })
                         }
                     })
+
 
             })
             .catch(error => {

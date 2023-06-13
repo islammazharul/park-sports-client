@@ -75,7 +75,8 @@ const Checkout = ({ data, price }) => {
                 classId: data.classId,
                 selectId: data._id,
                 status: 'service pending',
-                classNames: data.class_name
+                classNames: data.class_name,
+                available_seat: data.available_seat
             }
             axiosSecure.post("/payments", payment)
                 .then(res => {

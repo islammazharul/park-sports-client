@@ -50,9 +50,33 @@ const Signup = () => {
             .then(result => {
                 const loggedUser = result.user
                 const savedUser = { name: loggedUser.displayName, email: loggedUser.email, photo: loggedUser.photoURL, role: 'student' }
-                axiosSecure.post("/users", savedUser)
+                // axiosSecure.post("/users", savedUser)
+                //     .then(data => {
+                //         console.log(data);
+                //         if (data.data.insertedId) {
+                //             Swal.fire({
+                //                 title: 'User Login Successfully.',
+                //                 showClass: {
+                //                     popup: 'animate__animated animate__fadeInDown'
+                //                 },
+                //                 hideClass: {
+                //                     popup: 'animate__animated animate__fadeOutUp'
+                //                 }
+                //             })
+                //             navigate(from, { replace: true })
+                //         }
+                //     })
+                fetch("http://localhost:5000/users", {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json"
+                    },
+                    body: JSON.stringify(savedUser)
+                })
+                    .then(res => res.json())
                     .then(data => {
-                        if (data.data.insertedId) {
+                        if (data.insertedId) {
+                            reset()
                             Swal.fire({
                                 title: 'User Login Successfully.',
                                 showClass: {
@@ -146,16 +170,16 @@ const Signup = () => {
                                     // TODO PASS    
                                     type="password" name="password" placeholder="Enter Your Password" {...register("password", {
                                         required: true,
-                                        pattern: /(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/,
-                                        minLength: 6,
-                                        maxLength: 12
+                                        pattern: /(?=.*?[a-z])(?=.*?[0-9])/,
+
+                                        maxLength: 6
                                     })}
                                     className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border focus:border-green-400 focus:ring-green-300 focus:outline-none focus:ring focus:ring-opacity-40"
                                 />
                                 {errors.password?.type === 'required' && <span className="text-red-600">Password is required</span>}
-                                {errors.password?.type === 'pattern' && <span className="text-red-600">Password at least one uppercase letter, one lowercase letter, one number and one special character:</span>}
-                                {errors.password?.type === 'minLength' && <span className="text-red-600">Password must be 6 or more character</span>}
-                                {errors.password?.type === 'maxLength' && <span className="text-red-600">Password must be 12 or less character</span>}
+                                {/* {errors.password?.type === 'pattern' && <span className="text-red-600">Password at least one uppercase letter, one lowercase letter, one number and one special character:</span>} */}
+                                {/* {errors.password?.type === 'minLength' && <span className="text-red-600">Password must be 6 or more character</span>} */}
+                                {errors.password?.type === 'maxLength' && <span className="text-red-600">Password must be 6 or less character</span>}
                             </div>
                             <div className="mb-2">
                                 <label

@@ -23,7 +23,7 @@ const ManageUsers = () => {
         axiosSecure.patch(`/users/admin/${user._id}`)
             .then(data => {
                 // console.log("data", data.data);
-                if (data.data.modifiedCount > 0) {
+                if (data.data.modifiedCount) {
                     refetch()
                     Swal.fire({
                         position: 'top-end',

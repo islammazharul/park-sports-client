@@ -53,9 +53,9 @@ const MyEnrolle = () => {
                             <th>INSTRUCTOR IMAGE</th>
                             <th>INSTRUCTOR NAME</th>
                             <th>CLASS NAME</th>
-                            <th>TRANSACTION ID</th>
-                            <th>BOOKING DATE</th>
+                            <th>AVAILABLE SEATS</th>
                             <th>PRICE</th>
+                            <th>PAID</th>
                             <th>DELETE</th>
 
                         </tr>
@@ -84,14 +84,12 @@ const MyEnrolle = () => {
                                     {select.classNames}
                                 </td>
                                 <td>
-                                    {select.transactionId}
+                                    {select.available_seat}
                                 </td>
-                                <td>
-                                    {select.date}
-                                </td>
-
                                 <td className='text-start'>$ {select.price}</td>
-
+                                <td>
+                                    Paid
+                                </td>
                                 <td>
                                     <button onClick={() => handleDelete(select)} className="btn btn-ghost btn-small text-red-600"><FaTrashAlt></FaTrashAlt></button>
                                 </td>
