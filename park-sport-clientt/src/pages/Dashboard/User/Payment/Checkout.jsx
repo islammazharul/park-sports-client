@@ -3,6 +3,7 @@ import './Checkout.css'
 import { AuthContext } from '../../../../provider/AuthProvider';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
+import Swal from 'sweetalert2';
 
 const Checkout = ({ data, price }) => {
     console.log(price);
@@ -82,6 +83,11 @@ const Checkout = ({ data, price }) => {
                 .then(res => {
                     console.log(res.data);
                     if (res.data.insertResult.insertedId) {
+                        Swal.fire(
+                            'Success!',
+                            'Your payment has been successful',
+                            'success'
+                        )
                         return res.data.insertResult.insertedId
                     }
                 })
@@ -115,6 +121,7 @@ const Checkout = ({ data, price }) => {
                     Pay
                 </button>
             </form>
+
             {
                 paymentError && <p className="text-red-500">{paymentError}</p>
             }

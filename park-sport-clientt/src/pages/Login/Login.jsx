@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -6,6 +6,7 @@ import { AuthContext } from '../../provider/AuthProvider';
 import Swal from 'sweetalert2';
 import { FcGoogle } from 'react-icons/fc';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Login = () => {
     const [axiosSecure] = useAxiosSecure()
@@ -14,6 +15,8 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
+
+    const [show, setShow] = useState(false)
 
     const onSubmit = data => {
         signIn(data.email, data.password)
@@ -116,12 +119,19 @@ const Login = () => {
                             >
                                 Password
                             </label>
-                            <input
-                                type="password" name="password" placeholder="Enter Your Password" {...register("password", {
-                                    required: true,
-                                })}
-                                className="block w-full px-4 py-2 mt-2 text-black bg-white border focus:border-green-400 focus:ring-green-300 focus:outline-none focus:ring focus:ring-opacity-40"
-                            />
+                            <div className='flex items-center'>
+                                <input
+                                    type={show ? "text" : "password"} name="password" placeholder="Enter Your Password" {...register("password", {
+                                        required: true,
+                                    })}
+                                    className="block w-full px-4 py-2 mt-2 text-black bg-white border focus:border-green-400 focus:ring-green-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                                />
+                                <p className='-ml-16' onClick={() => setShow(!show)}><small>
+                                    {
+                                        show ? <FaEye className='w-6 h-6 mb-2'></FaEye> : <FaEyeSlash className='w-6 h-6 mb-2'></FaEyeSlash>
+                                    }
+                                </small></p>
+                            </div>
                         </div>
                         <a
                             href="#"

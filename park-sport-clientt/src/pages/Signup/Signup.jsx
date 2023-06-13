@@ -6,6 +6,7 @@ import { AuthContext } from '../../provider/AuthProvider';
 import Swal from 'sweetalert2';
 import { FcGoogle } from 'react-icons/fc';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Signup = () => {
     const [axiosSecure] = useAxiosSecure()
@@ -14,6 +15,9 @@ const Signup = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
+
+    const [show, setShow] = useState(false)
+    const [confirmShow, setConfirmShow] = useState(false)
 
 
 
@@ -100,7 +104,7 @@ const Signup = () => {
 
     const validatePasswordMatch = (value) => {
         const password = watch('password', '');
-        return value === password || alert("Passwords don't match.");
+        return value === password || "Passwords don't match.";
     };
 
 
@@ -166,19 +170,23 @@ const Signup = () => {
                                 >
                                     Password
                                 </label>
-                                <input
-                                    // TODO PASS    
-                                    type="password" name="password" placeholder="Enter Your Password" {...register("password", {
-                                        required: true,
-                                        pattern: /(?=.*?[a-z])(?=.*?[0-9])/,
-
-                                        maxLength: 6
-                                    })}
-                                    className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border focus:border-green-400 focus:ring-green-300 focus:outline-none focus:ring focus:ring-opacity-40"
-                                />
+                                <div className='flex items-center'>
+                                    <input
+                                        // TODO PASS    
+                                        type={show ? "text" : "password"} name="password" placeholder="Enter Your Password" {...register("password", {
+                                            required: true,
+                                            pattern: /(?=.*?[a-z])(?=.*?[0-9])/,
+                                            maxLength: 6
+                                        })}
+                                        className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border focus:border-green-400 focus:ring-green-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                                    />
+                                    <p className='-ml-16' onClick={() => setShow(!show)}><small>
+                                        {
+                                            show ? <FaEye className='w-6 h-6 mb-2'></FaEye> : <FaEyeSlash className='w-6 h-6 mb-2'></FaEyeSlash>
+                                        }
+                                    </small></p>
+                                </div>
                                 {errors.password?.type === 'required' && <span className="text-red-600">Password is required</span>}
-                                {/* {errors.password?.type === 'pattern' && <span className="text-red-600">Password at least one uppercase letter, one lowercase letter, one number and one special character:</span>} */}
-                                {/* {errors.password?.type === 'minLength' && <span className="text-red-600">Password must be 6 or more character</span>} */}
                                 {errors.password?.type === 'maxLength' && <span className="text-red-600">Password must be 6 or less character</span>}
                             </div>
                             <div className="mb-2">
@@ -188,12 +196,22 @@ const Signup = () => {
                                 >
                                     Confirm Password
                                 </label>
-                                <input
-
-                                    type="password" name="confirmPassword" placeholder="Enter Your Password" {...register("confirm", { required: true, validate: validatePasswordMatch })}
-                                    className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border focus:border-green-400 focus:ring-green-300 focus:outline-none focus:ring focus:ring-opacity-40"
-                                />
+                                <div className='flex items-center'>
+                                    <input
+                                        type={confirmShow ? "text" : "password"} name="confirmPassword" placeholder="Enter Your Password" {...register("confirm", {
+                                            required: true,
+                                            validate: validatePasswordMatch
+                                        })}
+                                        className="block w-full px-4 py-2 mt-2 text-black bg-white border focus:border-green-400 focus:ring-green-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                                    />
+                                    <p className='-ml-16' onClick={() => setConfirmShow(!confirmShow)}><small>
+                                        {
+                                            confirmShow ? <FaEye className='w-6 h-6 mb-2'></FaEye> : <FaEyeSlash className='w-6 h-6 mb-2'></FaEyeSlash>
+                                        }
+                                    </small></p>
+                                </div>
                                 {errors.confirmPassword && <span>{errors.confirmPassword.message}</span>}
+
                             </div>
 
                             <div className="mt-6">

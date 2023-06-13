@@ -71,7 +71,7 @@ const Classes = () => {
             <div className='lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:w-9/12 mx-auto my-8'>
                 {
                     sports?.length > 0 && sports?.map(sport =>
-                        <div key={sport._id} className={`card ${sport.available_seat === 0 ? "bg-red-300" : ""}`}>
+                        <div key={sport._id} className={`${sport.available_seat === 0 ? "bg-red-300" : "shadow-md shadow-green-500"}`}>
                             <h4 className="text-center py-3 text-xl font-semibold tracking-tight text-white bg-green-500">
                                 {sport.class_name}
                             </h4>

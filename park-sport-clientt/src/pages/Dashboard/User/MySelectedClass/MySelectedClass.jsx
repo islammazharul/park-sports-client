@@ -8,10 +8,12 @@ import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 
 const MySelectedClass = () => {
-    const [selectClass, refetch] = useSelectClass()
+    const [selectClass, refetch, isLoading] = useSelectClass()
     const [axiosSecure] = useAxiosSecure()
 
-
+    if (isLoading) {
+        <progress className="progress w-56"></progress>
+    }
 
     const handleDelete = select => {
         Swal.fire({
@@ -31,7 +33,7 @@ const MySelectedClass = () => {
                             Swal.fire(
                                 'Deleted!',
                                 'Your file has been deleted.',
-                                'success'
+                                'error'
                             )
                         }
                     })

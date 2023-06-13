@@ -18,7 +18,7 @@ const PopularClass = () => {
             <div className='lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:w-9/12 mx-auto my-8'>
                 {
                     popular.length > 0 && popular.map(pop =>
-                        <div key={pop._id} className="max-w-sm shadow-md shadow-green-500">
+                        <div key={pop._id} className="lg:max-w-sm shadow-md shadow-green-500">
                             <h4 className="text-center py-3 text-xl font-semibold tracking-tight text-white bg-green-500">
                                 {pop.class_name}
                             </h4>

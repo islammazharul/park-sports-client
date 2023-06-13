@@ -4,22 +4,20 @@ import { AuthContext } from '../provider/AuthProvider';
 import useSelectClass from '../hooks/useSelectClass';
 import useAdmin from '../hooks/useAdmin';
 import useInstructor from '../hooks/useInstructor';
-import useStudent from '../hooks/useStudent';
 import useEnrollClass from '../hooks/useEnrollClass';
-// import UserHome from '../pages/Dashboard/User/UserHome/UserHome';
-// import { FaBars, FaBook, FaHome, FaUsers, FaUtensils, FaWallet } from 'react-icons/fa';
 
 const Dashboard = () => {
-    const { user } = useContext(AuthContext)
+    const { user, loading } = useContext(AuthContext)
     const [selectClass] = useSelectClass()
     const [enroll] = useEnrollClass()
     const [isAdmin] = useAdmin()
     const [isInstructor] = useInstructor()
 
+
     const userLinks = [
         { link: `/dashboard/mySelectedClass`, label: <p>My Selected Classes <span className="px-2 py-1 text-sm text-black bg-white rounded-full">{selectClass?.length}</span></p> },
         { link: `/dashboard/myEnrolle`, label: <p>My Enrolled Classes <span className="px-2 py-1 text-sm text-black bg-white rounded-full">{enroll?.length}</span></p> },
-        // { link: `/`, label: "Back to Home" },
+        { link: `/dashboard/history`, label: "Payment History" },
     ];
     const instructorLinks = [
         { link: `/dashboard/addClasses`, label: 'Add a Class' },
@@ -29,11 +27,15 @@ const Dashboard = () => {
         { link: `/dashboard/manageClasses`, label: 'Manage Classes' },
         { link: `/dashboard/manageUsers`, label: 'Manage Users' },
     ];
+    if (loading) {
+        <progress className="progress w-56"></progress>
+    }
 
     return (
         <div className="flex h-screen">
             {/* Sidebar */}
             <div className="bg-gray-800 text-white font-semibold flex flex-col items-center justify-center lg:w-64">
+                <img className='rounded-full' src={user?.photoURL} />
                 <h1 className="text-2xl font-bold">{user?.displayName}</h1>
                 {/* Sidebar Content */}
                 <div className="p-4">

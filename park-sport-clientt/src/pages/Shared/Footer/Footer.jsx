@@ -13,7 +13,7 @@ const Footer = () => {
                 </Link>
                 <div className="flex flex-wrap justify-center">
                     <ul className="flex items-center space-x-4">
-                        <li>Home</li>
+                        <Link to="/"><li>Home</li></Link>
                         <li>About</li>
                         <li>Contact</li>
                         <li>Terms</li>

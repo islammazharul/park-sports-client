@@ -20,6 +20,7 @@ import InstructorRoute from "./InstructorRoute";
 import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import DashboardHome from "../pages/Dashboard/DashboardHome/DashboardHome";
+import History from "../pages/Dashboard/User/History/History";
 
 
 export const router = createBrowserRouter([
@@ -58,6 +59,7 @@ export const router = createBrowserRouter([
                 path: "",
                 element: <DashboardHome></DashboardHome>
             },
+            // student route
             {
                 path: "mySelectedClass",
                 element: <MySelectedClass></MySelectedClass>
@@ -69,6 +71,10 @@ export const router = createBrowserRouter([
             {
                 path: "payment",
                 element: <Payment></Payment>,
+            },
+            {
+                path: "history",
+                element: <History></History>
             },
             // instructor route
             {

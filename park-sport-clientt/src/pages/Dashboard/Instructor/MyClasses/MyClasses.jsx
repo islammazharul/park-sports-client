@@ -5,7 +5,7 @@ import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import SectionTitle from '../../../../components/SectionTitle/SectionTitle';
 
 const MyClasses = () => {
-    const { user } = useContext(AuthContext)
+    const { user, loading } = useContext(AuthContext)
     const [axiosSecure] = useAxiosSecure()
     const [sports, setSports] = useState([])
 

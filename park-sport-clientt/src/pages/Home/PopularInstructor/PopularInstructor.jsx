@@ -29,10 +29,7 @@ const PopularInstructor = () => {
                             </div>
 
                             <div className="flex flex-col items-center justify-center">
-                                <div className="font-bold text-indigo-500 md:text-lg">{pop.name}</div>
-                                <p className="mb-3 text-sm text-gray-500 md:text-base md:mb-4">
-                                    Founder / CEO
-                                </p>
+                                <div className="font-bold text-indigo-500 md:text-lg">Name of instructor : {pop.name}</div>
 
                                 <div className="flex">
                                     <div className="flex gap-4">
