@@ -5,10 +5,10 @@ import { useQuery } from '@tanstack/react-query';
 
 const PopularInstructor = () => {
     const [axiosSecure] = useAxiosSecure()
-    const { data: popular = [], refetch } = useQuery({
-        queryKey: ["popularClass"],
+    const { data: Instructors = [], refetch } = useQuery({
+        queryKey: ["popularInstructor"],
         queryFn: async () => {
-            const res = await axiosSecure.get("/popularClass")
+            const res = await axiosSecure.get("/popularInstructor")
             return res.data
         }
     })
@@ -18,18 +18,18 @@ const PopularInstructor = () => {
 
             <div className="grid gap-4 md:grid-cols-3 lg:w-9/12 mx-auto my-8">
                 {
-                    popular?.length > 0 && popular?.map(pop =>
+                    Instructors?.length > 0 && Instructors?.map(pop =>
                         <div key={pop._id} className="p-4 shadow-md shadow-green-500">
                             <div className="h-48 mb-2 overflow-hidden rounded-lg shadow-lg md:h-80">
                                 <img
-                                    src={pop.instructor_image}
+                                    src={pop?.photo}
                                     alt="Image"
                                     className="object-cover object-center w-full h-full"
                                 />
                             </div>
 
                             <div className="flex flex-col items-center justify-center">
-                                <div className="font-bold text-indigo-500 md:text-lg">{pop.instructor_name}</div>
+                                <div className="font-bold text-indigo-500 md:text-lg">{pop.name}</div>
                                 <p className="mb-3 text-sm text-gray-500 md:text-base md:mb-4">
                                     Founder / CEO
                                 </p>
