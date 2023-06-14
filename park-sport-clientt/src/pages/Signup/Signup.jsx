@@ -70,7 +70,7 @@ const Signup = () => {
                 //             navigate(from, { replace: true })
                 //         }
                 //     })
-                fetch("http://localhost:5000/users", {
+                fetch("https://park-sports-server.vercel.app/users", {
                     method: "POST",
                     headers: {
                         "content-type": "application/json"

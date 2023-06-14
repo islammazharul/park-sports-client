@@ -27,7 +27,7 @@ const AddClasses = () => {
                     const { class_name, instructor_name, email, price, available_seat, description } = data;
                     const newClass = { class_name, instructor_name, email, price: parseFloat(price), available_seat: parseInt(available_seat), description, class_image: imgURL, status: "pending", total_enroll: parseInt(0), feedback: "" }
                     // console.log(newClass);
-                    fetch("http://localhost:5000/sports", {
+                    fetch("https://park-sports-server.vercel.app/sports", {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json'

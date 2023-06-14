@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import Swal from 'sweetalert2';
 import { FcGoogle } from 'react-icons/fc';
@@ -11,13 +11,16 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 const Login = () => {
     const [axiosSecure] = useAxiosSecure()
     const { register, reset, handleSubmit, formState: { errors } } = useForm();
-    const { signIn, googleSignIn } = useContext(AuthContext)
+    const { user, signIn, googleSignIn } = useContext(AuthContext)
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
 
     const [show, setShow] = useState(false)
 
+    if (user?.uid) {
+        return <Navigate to={from} />
+    }
     const onSubmit = data => {
         signIn(data.email, data.password)
             .then(result => {
@@ -58,7 +61,7 @@ const Login = () => {
                 //             navigate(from, { replace: true })
                 //         }
                 //     })
-                fetch("http://localhost:5000/users", {
+                fetch("https://park-sports-server.vercel.app/users", {
                     method: "POST",
                     headers: {
                         "content-type": "application/json"

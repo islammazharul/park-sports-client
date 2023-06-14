@@ -35,10 +35,10 @@ const PopularClass = () => {
                                 <p className='font-bold'>Available Seats : {pop.available_seat}</p>
                                 <p className='font-semibold'>Price : $ {pop.price}</p>
                                 <button
-                                    onClick={() => handleEnroll(pop)}
+
                                     className="px-4 py-2 mt-3 text-md shadow bg-green-100 shadow-green-500 text-green-500 
                                     hover:bg-green-500 hover:text-green-100">
-                                    Enroll Now
+                                    Read More
                                 </button>
                             </div>
                         </div>

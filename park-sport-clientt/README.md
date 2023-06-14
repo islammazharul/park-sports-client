@@ -1,6 +1,6 @@
 
 ## Live Link
-Firebase -> [Park Sports Academy](https://funny-kiddy.web.app/)
+Firebase -> [Park Sports Academy](https://park-sport-academy.web.app/)
 
 ## Starter Template
 Github Repo Client -> [Park Sports Academy starter](https://github.com/programming-hero-web-course1/b712-summer-camp-client-side-islammazharul)

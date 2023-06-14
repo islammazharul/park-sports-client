@@ -72,7 +72,7 @@ const NavBar = () => {
                         <div className="mt-2 lg:hidden md:inline-block flex justify-between items-center flex-row-reverse">
                             {
                                 user ?
-                                    <div className="tooltip tooltip-left w-10" data-tip={user.displayName}>
+                                    <div className="w-12 h-12 tooltip tooltip-left" data-tip={user.displayName}>
                                         <img className='rounded-full' src={user?.photoURL} />
                                     </div> : ""
 

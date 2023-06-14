@@ -11,7 +11,7 @@ const Testimonial = () => {
                 <div className="p-4 text-gray-800 rounded-lg shadow-md shadow-green-500">
                     <div className="mb-2">
                         <p className="mb-2 text-center text-gray-600 ">
-                            " Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique sapiente iusto esse. "
+                            I can help you with a general CEO bio template that you can modify for a specific CEO. Here's a sample CEO bio
                         </p>
                         <div className="flex flex-col items-center justify-center">
                             <div className="w-12 h-12 overflow-hidden bg-gray-100 border-2 border-indigo-100 rounded-full">
@@ -19,37 +19,37 @@ const Testimonial = () => {
                                     className="object-cover object-center w-full h-full" />
                             </div>
                             <h5 className="font-bold text-indigo-600">John Doe</h5>
-                            <p className="text-sm text-gray-600">CEO / Founder</p>
+                            <p className="text-sm text-gray-600">Founder</p>
                         </div>
                     </div>
                 </div>
                 <div className="p-4 text-gray-800 rounded-lg shadow-md shadow-green-500">
                     <div className="mb-2">
                         <p className="mb-2 text-center text-gray-600 ">
-                            " Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique sapiente iusto esse. "
+                            Throughout his soccer career, Ben Crawley has excelled at all levels. Ben grew up in Austin and graduated from Westlake High School in 1989..
                         </p>
                         <div className="flex flex-col items-center justify-center">
                             <div className="w-12 h-12 overflow-hidden bg-gray-100 border-2 border-indigo-100 rounded-full">
                                 <img src="https://cdn.pixabay.com/photo/2021/07/14/17/32/manager-6466713__340.jpg" alt="img"
                                     className="object-cover object-center w-full h-full" />
                             </div>
-                            <h5 className="font-bold text-indigo-600">michael james</h5>
-                            <p className="text-sm text-gray-600">web developer</p>
+                            <h5 className="font-bold text-indigo-600">Ben Crawley</h5>
+                            <p className="text-sm text-gray-600">Chief Executive</p>
                         </div>
                     </div>
                 </div>
                 <div className="p-4 text-gray-800 rounded-lg shadow-md shadow-green-500">
                     <div className="mb-2">
                         <p className="mb-2 text-center text-gray-600 ">
-                            " Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique sapiente iusto esse. "
+                            Throughout his soccer career, michael anderson has excelled at all levels. Ben grew up in Austin and graduated from Westlake High School in 1989.
                         </p>
                         <div className="flex flex-col items-center justify-center">
                             <div className="w-12 h-12 overflow-hidden bg-gray-100 border-2 border-indigo-100 rounded-full">
-                                <img src="https://cdn.pixabay.com/photo/2021/07/14/17/32/manager-6466713__340.jpg" alt="img"
+                                <img src="https://i.ibb.co/x8JBSR4/team-1.jpg" alt="img"
                                     className="object-cover object-center w-full h-full" />
                             </div>
-                            <h5 className="font-bold text-indigo-600">michael james</h5>
-                            <p className="text-sm text-gray-600">web developer</p>
+                            <h5 className="font-bold text-indigo-600">michael anderson</h5>
+                            <p className="text-sm text-gray-600">Manger</p>
                         </div>
                     </div>
                 </div>
