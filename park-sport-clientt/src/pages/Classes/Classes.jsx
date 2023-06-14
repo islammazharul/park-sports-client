@@ -86,6 +86,7 @@ const Classes = () => {
                             <div className="px-6 py-4">
                                 <h3 className='text-lg font-bold'>Name of Instructor : {sport.instructor_name}</h3>
 
+                                <p className='font-bold'>Available_seat : {sport.available_seat}</p>
                                 <p className='font-semibold'>Price : $ {sport.price}</p>
                                 <button
                                     onClick={() => handleEnroll(sport)}
