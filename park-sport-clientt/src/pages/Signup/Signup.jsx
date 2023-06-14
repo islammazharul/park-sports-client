@@ -31,6 +31,7 @@ const Signup = () => {
                         const savedUser = { name: data.name, email: data.email, photo: data.photo, role: 'student' }
                         axiosSecure.post("/users", savedUser)
                             .then(data => {
+                                console.log("saved", data.data)
                                 if (data.data.insertedId) {
                                     reset()
                                     Swal.fire({
@@ -54,6 +55,7 @@ const Signup = () => {
             .then(result => {
                 const loggedUser = result.user
                 const savedUser = { name: loggedUser.displayName, email: loggedUser.email, photo: loggedUser.photoURL, role: 'student' }
+
                 // axiosSecure.post("/users", savedUser)
                 //     .then(data => {
                 //         console.log(data);
